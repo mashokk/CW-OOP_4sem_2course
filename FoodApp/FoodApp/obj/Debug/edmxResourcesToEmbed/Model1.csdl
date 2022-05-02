@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CW_RecipesModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Dish_Composition">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="ID_Dish" Type="Int32" />
+    <Property Name="ID_Ingredient" Type="Int32" />
+    <NavigationProperty Name="Dishes" Relationship="Self.FK_Dish_Composition_Dishes" FromRole="Dish_Composition" ToRole="Dishes" />
+    <NavigationProperty Name="Ingredients" Relationship="Self.FK_Dish_Composition_Ingredients" FromRole="Dish_Composition" ToRole="Ingredients" />
+  </EntityType>
+  <EntityType Name="Dishes">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Dish_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ID_Group" Type="Int32" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ID_Photo" Type="Int32" />
+    <NavigationProperty Name="Dish_Composition" Relationship="Self.FK_Dish_Composition_Dishes" FromRole="Dishes" ToRole="Dish_Composition" />
+    <NavigationProperty Name="Groups" Relationship="Self.FK_Dishes_Groups" FromRole="Dishes" ToRole="Groups" />
+    <NavigationProperty Name="Photos" Relationship="Self.FK_Dishes_Photos" FromRole="Dishes" ToRole="Photos" />
+  </EntityType>
+  <EntityType Name="Groups">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Group_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Dishes" Relationship="Self.FK_Dishes_Groups" FromRole="Groups" ToRole="Dishes" />
+  </EntityType>
+  <EntityType Name="Ingredients">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Ingredient_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Dish_Composition" Relationship="Self.FK_Dish_Composition_Ingredients" FromRole="Ingredients" ToRole="Dish_Composition" />
+  </EntityType>
+  <EntityType Name="Photos">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="URL_Photo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Dishes" Relationship="Self.FK_Dishes_Photos" FromRole="Photos" ToRole="Dishes" />
+  </EntityType>
+  <Association Name="FK_Dish_Composition_Dishes">
+    <End Role="Dishes" Type="Self.Dishes" Multiplicity="0..1" />
+    <End Role="Dish_Composition" Type="Self.Dish_Composition" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Dishes">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Dish_Composition">
+        <PropertyRef Name="ID_Dish" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Dish_Composition_Ingredients">
+    <End Role="Ingredients" Type="Self.Ingredients" Multiplicity="0..1" />
+    <End Role="Dish_Composition" Type="Self.Dish_Composition" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ingredients">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Dish_Composition">
+        <PropertyRef Name="ID_Ingredient" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Dishes_Groups">
+    <End Role="Groups" Type="Self.Groups" Multiplicity="0..1" />
+    <End Role="Dishes" Type="Self.Dishes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Groups">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Dishes">
+        <PropertyRef Name="ID_Group" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Dishes_Photos">
+    <End Role="Photos" Type="Self.Photos" Multiplicity="0..1" />
+    <End Role="Dishes" Type="Self.Dishes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Photos">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Dishes">
+        <PropertyRef Name="ID_Photo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DbRecipes" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Dish_Composition" EntityType="Self.Dish_Composition" />
+    <EntitySet Name="Dishes" EntityType="Self.Dishes" />
+    <EntitySet Name="Groups" EntityType="Self.Groups" />
+    <EntitySet Name="Ingredients" EntityType="Self.Ingredients" />
+    <EntitySet Name="Photos" EntityType="Self.Photos" />
+    <AssociationSet Name="FK_Dish_Composition_Dishes" Association="Self.FK_Dish_Composition_Dishes">
+      <End Role="Dishes" EntitySet="Dishes" />
+      <End Role="Dish_Composition" EntitySet="Dish_Composition" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Dish_Composition_Ingredients" Association="Self.FK_Dish_Composition_Ingredients">
+      <End Role="Ingredients" EntitySet="Ingredients" />
+      <End Role="Dish_Composition" EntitySet="Dish_Composition" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Dishes_Groups" Association="Self.FK_Dishes_Groups">
+      <End Role="Groups" EntitySet="Groups" />
+      <End Role="Dishes" EntitySet="Dishes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Dishes_Photos" Association="Self.FK_Dishes_Photos">
+      <End Role="Photos" EntitySet="Photos" />
+      <End Role="Dishes" EntitySet="Dishes" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

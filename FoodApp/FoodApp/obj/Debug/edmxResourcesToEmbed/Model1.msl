@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище CW_RecipesModelContainer" CdmEntityContainer="DbRecipes">
+    <EntitySetMapping Name="Dish_Composition">
+      <EntityTypeMapping TypeName="CW_RecipesModel.Dish_Composition">
+        <MappingFragment StoreEntitySet="Dish_Composition">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ID_Dish" ColumnName="ID_Dish" />
+          <ScalarProperty Name="ID_Ingredient" ColumnName="ID_Ingredient" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Dishes">
+      <EntityTypeMapping TypeName="CW_RecipesModel.Dishes">
+        <MappingFragment StoreEntitySet="Dishes">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Dish_name" ColumnName="Dish_name" />
+          <ScalarProperty Name="ID_Group" ColumnName="ID_Group" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="ID_Photo" ColumnName="ID_Photo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Groups">
+      <EntityTypeMapping TypeName="CW_RecipesModel.Groups">
+        <MappingFragment StoreEntitySet="Groups">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Group_name" ColumnName="Group_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ingredients">
+      <EntityTypeMapping TypeName="CW_RecipesModel.Ingredients">
+        <MappingFragment StoreEntitySet="Ingredients">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Ingredient_name" ColumnName="Ingredient_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Photos">
+      <EntityTypeMapping TypeName="CW_RecipesModel.Photos">
+        <MappingFragment StoreEntitySet="Photos">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="URL_Photo" ColumnName="URL_Photo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

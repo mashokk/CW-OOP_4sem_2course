@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="bb6f7cdabcaf40eebcb613d149acd240" Name="Diagram1">
+        <EntityTypeShape EntityType="CW_RecipesModel.Dish_Composition" Width="1.5" PointX="5.25" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CW_RecipesModel.Dishes" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="CW_RecipesModel.Groups" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CW_RecipesModel.Ingredients" Width="1.5" PointX="3" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CW_RecipesModel.Photos" Width="1.5" PointX="0.75" PointY="5.375" IsExpanded="true" />
+        <AssociationConnector Association="CW_RecipesModel.FK_Dish_Composition_Dishes" ManuallyRouted="false" />
+        <AssociationConnector Association="CW_RecipesModel.FK_Dish_Composition_Ingredients" ManuallyRouted="false" />
+        <AssociationConnector Association="CW_RecipesModel.FK_Dishes_Groups" ManuallyRouted="false" />
+        <AssociationConnector Association="CW_RecipesModel.FK_Dishes_Photos" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
