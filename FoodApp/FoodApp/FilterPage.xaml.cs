@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,13 +15,19 @@ using System.Windows.Shapes;
 
 namespace FoodApp
 {
-    public partial class MainWindow : Window
+    /// <summary>
+    /// Логика взаимодействия для FilterPage.xaml
+    /// </summary>
+    public partial class FilterPage : Page
     {
-        public MainWindow()
+        public FilterPage()
         {
             InitializeComponent();
-            MainFrame.Content = new FilterPage();
         }
-        
+
+        private void ButtonEdit_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new EditPage());
+        }
     }
 }

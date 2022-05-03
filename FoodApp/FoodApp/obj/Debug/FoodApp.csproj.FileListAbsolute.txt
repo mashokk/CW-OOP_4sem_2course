@@ -18,3 +18,7 @@ C:\Study\2 курс\4 семестр\0.КУРСАЧ\FoodApp\FoodApp\obj\Debug\Fo
 C:\Study\2 курс\4 семестр\0.КУРСАЧ\FoodApp\FoodApp\obj\Debug\FoodApp.csproj.CopyComplete
 C:\Study\2 курс\4 семестр\0.КУРСАЧ\FoodApp\FoodApp\obj\Debug\FoodApp.exe
 C:\Study\2 курс\4 семестр\0.КУРСАЧ\FoodApp\FoodApp\obj\Debug\FoodApp.pdb
+C:\Study\2 курс\4 семестр\0.КУРСАЧ\FoodApp\FoodApp\obj\Debug\FilterPage.g.cs
+C:\Study\2 курс\4 семестр\0.КУРСАЧ\FoodApp\FoodApp\obj\Debug\FilterPage.baml
+C:\Study\2 курс\4 семестр\0.КУРСАЧ\FoodApp\FoodApp\obj\Debug\EditPage.g.cs
+C:\Study\2 курс\4 семестр\0.КУРСАЧ\FoodApp\FoodApp\obj\Debug\EditPage.baml
