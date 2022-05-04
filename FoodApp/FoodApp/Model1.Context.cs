@@ -30,5 +30,6 @@ namespace FoodApp
         public DbSet<Groups> Groups { get; set; }
         public DbSet<Ingredients> Ingredients { get; set; }
         public DbSet<Photos> Photos { get; set; }
+        public DbSet<Users> Users { get; set; }
     }
 }

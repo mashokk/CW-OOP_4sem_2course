@@ -39,6 +39,15 @@
     <Property Name="ID" Type="int" Nullable="false" />
     <Property Name="URL_Photo" Type="nvarchar(max)" />
   </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Login" Type="nvarchar" MaxLength="50" />
+    <Property Name="Password" Type="nchar" MaxLength="30" />
+    <Property Name="Username" Type="nvarchar(max)" />
+  </EntityType>
   <Association Name="FK_Dish_Composition_Dishes">
     <End Role="Dishes" Type="Self.Dishes" Multiplicity="0..1" />
     <End Role="Dish_Composition" Type="Self.Dish_Composition" Multiplicity="*" />
@@ -93,6 +102,7 @@
     <EntitySet Name="Groups" EntityType="Self.Groups" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Ingredients" EntityType="Self.Ingredients" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Photos" EntityType="Self.Photos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK_Dish_Composition_Dishes" Association="Self.FK_Dish_Composition_Dishes">
       <End Role="Dishes" EntitySet="Dishes" />
       <End Role="Dish_Composition" EntitySet="Dish_Composition" />

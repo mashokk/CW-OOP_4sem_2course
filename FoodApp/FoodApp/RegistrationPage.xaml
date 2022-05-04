@@ -1,0 +1,24 @@
+﻿<Page x:Class="FoodApp.RegistrationPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:FoodApp"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="750"
+      Title="RegistrationPage">
+
+    <Grid Background="White">
+        <Button Content="Назад" Margin="10,10,657.4,360.6" Click="Button_Click"/>
+        <StackPanel Margin="185,80,185.4,51.6">
+            <Label Content="Добро пожаловать!" Margin="10" Width="120"/>
+            <Label Content="Ваше имя" Margin="0,0,-0.2,0"/>
+            <TextBox x:Name="tbusername" Margin="0,0,-0.2,0"/>
+            <Label Content="Логин" Margin="0,0,-0.2,0"/>
+            <TextBox x:Name="tblogin" Margin="0,0,-0.2,0"/>
+            <Label Content="Пароль" Margin="0,0,-0.2,0"/>
+            <PasswordBox x:Name="tbpassword" Margin="0,0,-0.2,0"/>
+            <Button Content="Регистрация" Margin="15" Width="150" Click="RegistrButton_Click" />
+        </StackPanel>
+    </Grid>
+</Page>

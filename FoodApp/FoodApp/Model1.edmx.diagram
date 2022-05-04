@@ -14,6 +14,7 @@
         <AssociationConnector Association="CW_RecipesModel.FK_Dish_Composition_Ingredients" ManuallyRouted="false" />
         <AssociationConnector Association="CW_RecipesModel.FK_Dishes_Groups" ManuallyRouted="false" />
         <AssociationConnector Association="CW_RecipesModel.FK_Dishes_Photos" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="CW_RecipesModel.Users" Width="1.5" PointX="6.625" PointY="4.5" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -117,5 +117,15 @@
       <End Role="Photos" EntitySet="Photos" />
       <End Role="Dishes" EntitySet="Dishes" />
     </AssociationSet>
+    <EntitySet Name="Users" EntityType="CW_RecipesModel.Users" />
   </EntityContainer>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+    <Property Name="Username" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
 </Schema>

@@ -15,15 +15,14 @@ using System.Windows.Shapes;
 
 namespace FoodApp
 {
-    /// <summary>
-    /// Логика взаимодействия для FilterPage.xaml
-    /// </summary>
     public partial class FilterPage : Page
     {
+        DbRecipes db; //Для работы с базой
         public FilterPage()
         {
             InitializeComponent();
         }
+
 
         private void ButtonEdit_Click(object sender, RoutedEventArgs e)
         {

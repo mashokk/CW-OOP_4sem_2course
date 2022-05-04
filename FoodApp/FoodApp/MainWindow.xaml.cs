@@ -22,7 +22,7 @@ namespace FoodApp
         public MainWindow()
         {
             InitializeComponent();
-            MainFrame.Content = new FilterPage();
+            MainFrame.Content = new LoginPage();
         }
         
     }

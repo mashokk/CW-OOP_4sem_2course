@@ -1,0 +1,25 @@
+﻿<Page x:Class="FoodApp.LoginPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:FoodApp"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="750"
+      Title="LoginPage">
+
+    <Grid Background="White">
+        <StackPanel Margin="185,120,185.4,81.6">
+            <Label Content="Логин"/>
+            <TextBox x:Name="tbLogin"/>
+            <Label Content="Пароль"/>
+            <PasswordBox x:Name="tbPassword"/>
+            <Button Content="Авторизация" Margin="15" Width="150" Click="LoginButton_Click"/>
+            <TextBlock Width="110" HorizontalAlignment="Center">
+                <Hyperlink Click="Button_Click">
+                    Зарегестрироваться
+                </Hyperlink>
+            </TextBlock>
+        </StackPanel>
+    </Grid>
+</Page>
