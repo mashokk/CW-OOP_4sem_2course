@@ -30,8 +30,10 @@ namespace FoodApp
             List<Dishes> RV = db.Dishes.Local.ToList();
             RecipesView.ItemsSource = RV;
 
+            //ингридиентыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыы
+            //BindingList<Dish_Composition> ingredients = db.Dish_Composition.Local.ToBindingList();
+            //List<Ingredients> il = db.Ingredients.Local.ToList();
         }
-
 
         private void ButtonEdit_Click(object sender, RoutedEventArgs e)
         {

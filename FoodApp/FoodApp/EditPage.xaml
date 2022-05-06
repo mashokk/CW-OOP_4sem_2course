@@ -34,22 +34,6 @@
                                     Width="150"/>
                             <DataGridTextColumn Header="Описание" Width="*" Binding="{Binding Path=Description}" ElementStyle="{StaticResource WrapText}"/>
                         </DataGrid.Columns>
-
-
-
-                        <DataGrid.RowDetailsTemplate>
-                            <DataTemplate>
-                                <StackPanel Orientation="Horizontal">
-                                    <StackPanel>
-                                        <Label Content="{Binding Path=Dish_name}" ContentStringFormat="Название: {0}" FontWeight="Bold" FontSize="16"/>
-                                        <Label Content="{Binding Path=Groups.Group_name}" ContentStringFormat="Группа: {0}"/>
-                                    </StackPanel>
-                                </StackPanel>
-                            </DataTemplate>
-                        </DataGrid.RowDetailsTemplate>
-
-
-
                     </DataGrid>
                 </DockPanel>
             </TabItem>
