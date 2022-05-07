@@ -41,6 +41,16 @@ namespace FoodApp
             switch (tt)
             {
                 case TableType.IngredientsTT:
+                    int id = db.Ingredients.Max(m => m.ID);
+                    try
+                    {
+                        Ingredients newus = new Ingredients { ID = id + 1 };
+                        db.Ingredients.Add(newus);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
                     db.Ingredients.Load();
                     BindingList<Ingredients> blIngredient = db.Ingredients.Local.ToBindingList(); //Получаем коллекцию BindingList
                     blIngredient.AddingNew += (sender, e) => e.NewObject = new Ingredients() { Ingredient_name = "<новый>" }; //Задаем шаблон для новой записи
@@ -50,6 +60,7 @@ namespace FoodApp
                 case TableType.CompositionTT:
                     db.Dish_Composition.Load();
                     BindingList<Dish_Composition> blComposition = db.Dish_Composition.Local.ToBindingList();
+
                     blComposition.AddingNew += (sender, e) => e.NewObject = new Dish_Composition() { ID_Dish = 0, ID_Ingredient = 0 };
                     this.compositionTable.ItemsSource = blComposition;
                     this.colDish.ItemsSource = db.Dishes.ToArray();
