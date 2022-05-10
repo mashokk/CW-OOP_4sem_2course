@@ -28,5 +28,6 @@ namespace FoodApp
         public virtual ICollection<Dish_Composition> Dish_Composition { get; set; }
         public virtual Groups Groups { get; set; }
         public virtual Photos Photos { get; set; }
+
     }
 }

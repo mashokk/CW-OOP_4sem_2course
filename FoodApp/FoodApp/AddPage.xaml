@@ -26,7 +26,7 @@
 
 
         <TextBox Text="{Binding Dish_name}" x:Name="DishName" HorizontalAlignment="Left" Height="23" Margin="150,115,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="232"/>
-        <ComboBox SelectedItem="{Binding Group_name}" x:Name="ComboGroups" HorizontalAlignment="Left" Margin="150,159,0,0" VerticalAlignment="Top" Width="232"/>
+        <ComboBox SelectedItem="{Binding ID_Group}" x:Name="ComboGroups" HorizontalAlignment="Left" Margin="150,159,0,0" VerticalAlignment="Top" Width="232"/>
         <DataGrid HorizontalAlignment="Left" Height="77" Margin="150,199,0,0" VerticalAlignment="Top" Width="232"/>
         <Button Content="Добавить рецепт" HorizontalAlignment="Left" Margin="416,305,0,0" VerticalAlignment="Top" Width="300" Height="88" Click="AddSaveButton_Click"/>
         <TextBox x:Name="DescriptionText" Text="{Binding Description}" HorizontalAlignment="Left" Height="88" Margin="25,305,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="357"/>

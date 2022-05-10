@@ -58,8 +58,8 @@ namespace FoodApp
             string name = DishName.Text;
             string description = DescriptionText.Text;
             string group = ComboGroups.Text;
-            var idgr = db.Groups.Where(n => n.Group_name == group).Select(x => x.ID);
-            int idgroup = Convert.ToInt32(idgr);
+            var idgr = db.Groups.Where(n => n.Group_name == group).Select(x => x.ID).FirstOrDefault();
+            //int idgroup = Convert.ToInt32(idgr);
             int id = db.Dishes.Max(m => m.ID);
             try
             {
@@ -67,10 +67,9 @@ namespace FoodApp
                 {
                     Dish_name = name,
                     Description = description,
-                    ID_Group = idgroup,
+                    ID_Group = idgr,
                     ID = id + 1
                 };
-                //this.ComboGroups.ItemsSource = db.Groups.ToArray();
                 db.Dishes.Add(newdish);
                 db.SaveChanges();
                 Dishes user = db.Dishes.FirstOrDefault((u) => u.Dish_name == name);
