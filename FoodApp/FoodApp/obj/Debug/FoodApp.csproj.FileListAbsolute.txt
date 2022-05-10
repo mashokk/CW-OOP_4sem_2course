@@ -26,3 +26,5 @@ C:\Study\2 курс\4 семестр\0.КУРСАЧ\FoodApp\FoodApp\obj\Debug\Lo
 C:\Study\2 курс\4 семестр\0.КУРСАЧ\FoodApp\FoodApp\obj\Debug\LoginPage.baml
 C:\Study\2 курс\4 семестр\0.КУРСАЧ\FoodApp\FoodApp\obj\Debug\RegistrationPage.g.cs
 C:\Study\2 курс\4 семестр\0.КУРСАЧ\FoodApp\FoodApp\obj\Debug\RegistrationPage.baml
+C:\Study\2 курс\4 семестр\0.КУРСАЧ\FoodApp\FoodApp\obj\Debug\AddPage.g.cs
+C:\Study\2 курс\4 семестр\0.КУРСАЧ\FoodApp\FoodApp\obj\Debug\AddPage.baml

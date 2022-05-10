@@ -41,27 +41,18 @@ namespace FoodApp
             switch (tt)
             {
                 case TableType.IngredientsTT:
-                    int id = db.Ingredients.Max(m => m.ID);
-                    try
-                    {
-                        Ingredients newus = new Ingredients { ID = id + 1 };
-                        db.Ingredients.Add(newus);
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message);
-                    }
                     db.Ingredients.Load();
+                    int id1 = db.Ingredients.Max(m => m.ID);
                     BindingList<Ingredients> blIngredient = db.Ingredients.Local.ToBindingList(); //Получаем коллекцию BindingList
-                    blIngredient.AddingNew += (sender, e) => e.NewObject = new Ingredients() { Ingredient_name = "<новый>" }; //Задаем шаблон для новой записи
+                    blIngredient.AddingNew += (sender, e) => e.NewObject = new Ingredients() { ID = id1 + 1, Ingredient_name = "<новый>" }; //Задаем шаблон для новой записи
                     this.ingredientTable.ItemsSource = blIngredient; //Задаем BindingList<> как источник данных
                     break;
 
                 case TableType.CompositionTT:
                     db.Dish_Composition.Load();
+                    int id2 = db.Dish_Composition.Max(m => m.ID);
                     BindingList<Dish_Composition> blComposition = db.Dish_Composition.Local.ToBindingList();
-
-                    blComposition.AddingNew += (sender, e) => e.NewObject = new Dish_Composition() { ID_Dish = 0, ID_Ingredient = 0 };
+                    blComposition.AddingNew += (sender, e) => e.NewObject = new Dish_Composition() { ID = id2 + 1, ID_Dish = 0, ID_Ingredient = 0 };
                     this.compositionTable.ItemsSource = blComposition;
                     this.colDish.ItemsSource = db.Dishes.ToArray();
                     this.colIngred.ItemsSource = db.Ingredients.ToArray();
@@ -69,8 +60,9 @@ namespace FoodApp
 
                 case TableType.DishesTT:
                     db.Dishes.Load();
+                    int id3 = db.Dishes.Max(m => m.ID); //индекс
                     BindingList<Dishes> blDishes = db.Dishes.Local.ToBindingList();
-                    blDishes.AddingNew += (sender, e) => e.NewObject = new Dishes() { Dish_name = "<новый>", ID_Group = 0, Description = "<описание>" };
+                    blDishes.AddingNew += (sender, e) => e.NewObject = new Dishes() { ID = id3 + 1, Dish_name = "<новый>", ID_Group = 0, Description = "<описание>", ID_Photo = 0 };
                     this.dishesTable.ItemsSource = blDishes;
                     this.colGroup.ItemsSource = db.Groups.ToArray();
                     break;

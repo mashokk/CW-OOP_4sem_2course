@@ -32,12 +32,23 @@ namespace FoodApp
 
             //ингридиентыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыы
             //BindingList<Dish_Composition> ingredients = db.Dish_Composition.Local.ToBindingList();
-            //List<Ingredients> il = db.Ingredients.Local.ToList();
+            //List<Ingredients> items = db.Ingredients.Local.ToList();
+            //lvDataBinding.ItemsSource = items;
+        }
+
+        public class Ingreds
+        {
+            public List<Dish_Composition> dc { get; set; } = new List<Dish_Composition>();
         }
 
         private void ButtonEdit_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new EditPage());
+        }
+
+        private void ButtonAdd_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new AddPage());
         }
     }
 }

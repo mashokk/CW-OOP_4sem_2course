@@ -35,11 +35,14 @@
                         <Image Source="{Binding Photos.URL_Photo}" HorizontalAlignment="Left" Width="200" Grid.Row="1" Stretch="Uniform" Margin="5"></Image>
                         <TextBlock Text="{Binding Dish_name}" Grid.Row="0" FontWeight="Bold" FontSize="16"></TextBlock>
                         <TextBlock Text="{Binding Groups.Group_name}" Grid.Row="2"></TextBlock>
-
+                        
                         <TextBlock Text="{Binding Description}" Grid.Row="4" TextTrimming="WordEllipsis"></TextBlock>
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+        
+        
+        <Button Content="Добавить" HorizontalAlignment="Left" Margin="233,15,0,0" VerticalAlignment="Top" Width="70" Height="70" Click="ButtonAdd_Click"/>
     </Grid>
 </Page>

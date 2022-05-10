@@ -33,6 +33,7 @@
                                     SelectedValueBinding="{Binding Path=ID_Group}" 
                                     Width="150"/>
                             <DataGridTextColumn Header="Описание" Width="*" Binding="{Binding Path=Description}" ElementStyle="{StaticResource WrapText}"/>
+                            <DataGridTextColumn Header="Фото" Width="150" Binding="{Binding Path=ID_Photo}"/>
                         </DataGrid.Columns>
                     </DataGrid>
                 </DockPanel>
