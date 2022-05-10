@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:FoodApp"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="750"
-      Title="FilterPage">
+      Title="FilterPage" IsVisibleChanged="Page_IsVisibleChanged">
 
     <Grid Background="White">
         <Grid.ColumnDefinitions>

@@ -28,7 +28,7 @@ namespace FoodApp
             db = new DbRecipes();
             db.Dishes.Load();
             List<Dishes> RV = db.Dishes.Local.ToList();
-            RecipesView.ItemsSource = RV;
+            //RecipesView.ItemsSource = RV;
 
             //ингридиентыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыы
             //BindingList<Dish_Composition> ingredients = db.Dish_Composition.Local.ToBindingList();
@@ -49,6 +49,15 @@ namespace FoodApp
         private void ButtonAdd_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new AddPage());
+        }
+
+        private void Page_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            if (Visibility == Visibility.Visible)
+            {
+                DbRecipes.GetContext().ChangeTracker.Entries().ToList().ForEach(p => p.Reload());
+                RecipesView.ItemsSource = DbRecipes.GetContext().Dishes.ToList();
+            }
         }
     }
 }

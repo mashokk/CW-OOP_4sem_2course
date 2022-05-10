@@ -8,7 +8,7 @@
       d:DesignHeight="450" d:DesignWidth="750" Title="AddPage" >
 
     <Grid Background="White">
-        <StackPanel HorizontalAlignment="Left" Height="326" Margin="416,15,0,0" VerticalAlignment="Top" Width="300">
+        <StackPanel HorizontalAlignment="Left" Height="285" Margin="416,15,0,0" VerticalAlignment="Top" Width="300">
             <Image Name="ImageViewer1" Height="250" Width="300"/>
             <StackPanel Orientation="Horizontal">
                 <Label  Height="25" x:Name="Label1" Content="Выберите файл:"  Margin="5,0,0,0"/>
@@ -22,19 +22,14 @@
         <TextBlock HorizontalAlignment="Left" Margin="25,115,0,0" TextWrapping="Wrap" Text="Название" VerticalAlignment="Top" Height="18" Width="60"/>
         <TextBlock HorizontalAlignment="Left" Margin="25,159,0,0" TextWrapping="Wrap" Text="Выберите группу:" VerticalAlignment="Top" Height="18" Width="104"/>
         <TextBlock HorizontalAlignment="Left" Margin="25,199,0,0" TextWrapping="Wrap" Text="Ингридиенты:" VerticalAlignment="Top" Height="18" Width="81"/>
-        <TextBlock HorizontalAlignment="Left" Margin="25,289,0,0" TextWrapping="Wrap" Text="Введите описание:" VerticalAlignment="Top" Height="18" Width="111"/>
+        <TextBlock HorizontalAlignment="Left" Margin="25,282,0,0" TextWrapping="Wrap" Text="Введите описание:" VerticalAlignment="Top" Height="18" Width="111"/>
 
 
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="150,115,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="232"/>
-        <ComboBox HorizontalAlignment="Left" Margin="150,159,0,0" VerticalAlignment="Top" Width="232"/>
-        <DataGrid HorizontalAlignment="Left" Height="87" Margin="150,199,0,0" VerticalAlignment="Top" Width="232"/>
-        <RichTextBox HorizontalAlignment="Left" Height="88" Margin="25,312,0,0" VerticalAlignment="Top" Width="357">
-            <FlowDocument>
-                <Paragraph>
-                    <Run Text="RichTextBox"/>
-                </Paragraph>
-            </FlowDocument>
-        </RichTextBox>
+        <TextBox Text="{Binding Dish_name}" x:Name="DishName" HorizontalAlignment="Left" Height="23" Margin="150,115,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="232"/>
+        <ComboBox SelectedItem="{Binding Group_name}" x:Name="ComboGroups" HorizontalAlignment="Left" Margin="150,159,0,0" VerticalAlignment="Top" Width="232"/>
+        <DataGrid HorizontalAlignment="Left" Height="77" Margin="150,199,0,0" VerticalAlignment="Top" Width="232"/>
+        <Button Content="Добавить рецепт" HorizontalAlignment="Left" Margin="416,305,0,0" VerticalAlignment="Top" Width="300" Height="88" Click="AddSaveButton_Click"/>
+        <TextBox x:Name="DescriptionText" Text="{Binding Description}" HorizontalAlignment="Left" Height="88" Margin="25,305,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="357"/>
 
     </Grid>
 </Page>

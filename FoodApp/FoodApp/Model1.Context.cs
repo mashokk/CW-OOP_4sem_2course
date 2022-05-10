@@ -15,9 +15,17 @@ namespace FoodApp
     
     public partial class DbRecipes : DbContext
     {
+        private static DbRecipes _context;
         public DbRecipes()
             : base("name=DbRecipes")
         {
+        }
+
+        public static DbRecipes GetContext()
+        {
+            if (_context == null)
+                _context = new DbRecipes();
+            return _context;
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
