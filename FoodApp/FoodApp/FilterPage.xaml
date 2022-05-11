@@ -35,7 +35,6 @@
                         <Image Source="{Binding Photos.URL_Photo}" HorizontalAlignment="Left" Width="200" Grid.Row="1" Stretch="Uniform" Margin="5"></Image>
                         <TextBlock Text="{Binding Dish_name}" Grid.Row="0" FontWeight="Bold" FontSize="16"></TextBlock>
                         <TextBlock Text="{Binding Groups.Group_name}" Grid.Row="2"></TextBlock>
-                        
                         <TextBlock Text="{Binding Description}" Grid.Row="4" TextTrimming="WordEllipsis"></TextBlock>
                     </Grid>
                 </DataTemplate>

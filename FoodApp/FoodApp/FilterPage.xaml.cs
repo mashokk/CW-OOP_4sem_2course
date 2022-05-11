@@ -48,16 +48,12 @@ namespace FoodApp
 
         private void UpdateDishes()
         {
-            /* var currentdish = DbRecipes.GetContext().Dishes.ToList();
-
-             //if (ComboType.SelectedIndex > 0)
-             //    currentdish = currentdish.Where(n => n.Groups.Contains(ComboType.SelectedItem as Type)).ToList();
-
-             currentdish = currentdish.Where(p => p.Dish_name.ToLower().Contains(TBoxSearch.Text.ToLower())).ToList();
- */
-
+            var idgr = db.Groups.Where(n => n.Group_name == ComboType.Text).Select(x => x.ID).FirstOrDefault();
             db = new DbRecipes();
             RecipesView.ItemsSource = db.Dishes.Where(x => x.Dish_name.Contains(TBoxSearch.Text)).ToList();
+
+            if (ComboType.SelectedIndex > 0)
+                RecipesView.ItemsSource = db.Dishes.Where(x => x.ID_Group == idgr).ToList(); // НЕ ПАШЕТ
         }
 
         public class Ingreds
