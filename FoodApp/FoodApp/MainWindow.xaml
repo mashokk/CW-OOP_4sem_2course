@@ -5,6 +5,6 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FoodApp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="750" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen">
+        Title="PotatoEat" Height="450" Width="750" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen">
     <Frame Name="MainFrame" Background="White" NavigationUIVisibility="Hidden"/>
 </Window>

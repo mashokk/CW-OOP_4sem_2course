@@ -8,8 +8,45 @@
       d:DesignHeight="450" d:DesignWidth="750"
       Title="RegistrationPage">
 
-    <Grid Background="White">
-        <Button Content="Назад" Margin="10,10,657.4,360.6" Click="Button_Click"/>
+    <Page.Background>
+        <ImageBrush ImageSource="C:\Study\2 курс\4 семестр\0.КУРСАЧ\FoodApp\FoodApp\Resources\bg.png"/>
+    </Page.Background>
+    
+    <Page.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Height" Value="35" />
+            <Setter Property="Background" Value="#ad6a3c" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="Margin" Value="10" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border CornerRadius="20"
+                                Background="{TemplateBinding Background}">
+
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style TargetType="Label">
+            <Setter Property="Height" Value="30" />
+            <Setter Property="Foreground" Value="White" />
+        </Style>
+        <Style TargetType="TextBox">
+            <Setter Property="Background" Value="White" />
+        </Style>
+        <Style TargetType="Hyperlink">
+            <Setter Property="Foreground" Value="White" />
+        </Style>
+    </Page.Resources>
+
+    <Grid>
+        <StackPanel Margin="16,17,678.4,351.6">
+            <Image Source="Resources/back.png" MouseDown="aPicture_MouseDown" Cursor="Hand"/>
+        </StackPanel>
         <StackPanel Margin="185,80,185.4,51.6">
             <Label Content="Добро пожаловать!" Margin="10" Width="120"/>
             <Label Content="Ваше имя" Margin="0,0,-0.2,0"/>
@@ -18,7 +55,7 @@
             <TextBox x:Name="tblogin" Margin="0,0,-0.2,0"/>
             <Label Content="Пароль" Margin="0,0,-0.2,0"/>
             <PasswordBox x:Name="tbpassword" Margin="0,0,-0.2,0"/>
-            <Button Content="Регистрация" Margin="15" Width="150" Click="RegistrButton_Click" />
+            <Button Content="Регистрация" Margin="15" Width="150" Click="RegistrButton_Click" Cursor="Hand" />
         </StackPanel>
     </Grid>
 </Page>

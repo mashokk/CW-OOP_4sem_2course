@@ -8,13 +8,48 @@
       d:DesignHeight="450" d:DesignWidth="750"
       Title="LoginPage">
 
-    <Grid Background="White">
+    <Page.Background>
+        <ImageBrush ImageSource="C:\Study\2 курс\4 семестр\0.КУРСАЧ\FoodApp\FoodApp\Resources\bg.png"/>
+    </Page.Background>
+    
+    <Page.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Height" Value="35" />
+            <Setter Property="Background" Value="#ad6a3c" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="Margin" Value="10" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border CornerRadius="20"
+                                Background="{TemplateBinding Background}">
+
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style TargetType="Label">
+            <Setter Property="Height" Value="30" />
+            <Setter Property="Foreground" Value="White" />
+        </Style>
+        <Style TargetType="TextBox">
+            <Setter Property="Background" Value="White" />
+        </Style>
+        <Style TargetType="Hyperlink">
+            <Setter Property="Foreground" Value="White" />
+        </Style>
+    </Page.Resources>
+    
+    <Grid>
         <StackPanel Margin="185,120,185.4,81.6">
             <Label Content="Логин"/>
             <TextBox x:Name="tbLogin"/>
             <Label Content="Пароль"/>
             <PasswordBox x:Name="tbPassword"/>
-            <Button Content="Авторизация" Margin="15" Width="150" Click="LoginButton_Click"/>
+            <Button Content="Авторизация" Cursor="Hand" Margin="15" Width="150" Click="LoginButton_Click"/>
             <TextBlock Width="110" HorizontalAlignment="Center">
                 <Hyperlink Click="Button_Click">
                     Зарегестрироваться
