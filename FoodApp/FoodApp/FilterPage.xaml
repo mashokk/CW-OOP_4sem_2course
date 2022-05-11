@@ -21,7 +21,7 @@
         <ComboBox HorizontalAlignment="Left" Margin="25,205,0,0" VerticalAlignment="Top" Width="278"/>
 
 
-        <ListView Name="RecipesView" HorizontalAlignment="Left" Height="385" Margin="399,15,0,0" VerticalAlignment="Top" Width="321" Grid.ColumnSpan="2">
+        <ListView Name="RecipesView" HorizontalAlignment="Left" Height="385" Margin="399,15,0,0" VerticalAlignment="Top" Width="321" Grid.ColumnSpan="2" VirtualizingPanel.ScrollUnit="Pixel" >
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Grid Width="300">

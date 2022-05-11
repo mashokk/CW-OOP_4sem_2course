@@ -30,6 +30,9 @@ namespace FoodApp
             ComboGroups.ItemsSource = gr;
             ComboGroups.SelectedValuePath = "ID";
             ComboGroups.DisplayMemberPath = "Group_name";
+
+
+
         }
 
 
@@ -44,7 +47,7 @@ namespace FoodApp
             if (dlg.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 string selectedFileName = dlg.FileName;
-                FileNameLabel.Content = selectedFileName;
+                FileNameLabel.Text = selectedFileName;
                 BitmapImage bitmap = new BitmapImage();
                 bitmap.BeginInit();
                 bitmap.UriSource = new Uri(selectedFileName);
@@ -55,12 +58,35 @@ namespace FoodApp
 
         private void AddSaveButton_Click(object sender, RoutedEventArgs e)
         {
+            //инициализация пути к изображению
+
             string name = DishName.Text;
             string description = DescriptionText.Text;
             string group = ComboGroups.Text;
+            string photo = FileNameLabel.Text;
             var idgr = db.Groups.Where(n => n.Group_name == group).Select(x => x.ID).FirstOrDefault();
+            var idph = db.Photos.Where(o => o.URL_Photo == photo).Select(y => y.ID).FirstOrDefault();
             //int idgroup = Convert.ToInt32(idgr);
             int id = db.Dishes.Max(m => m.ID);
+            int idphoto = db.Photos.Max(k => k.ID);
+
+            //сначала добавляю фото
+            try
+            {
+                Photos newphoto = new Photos
+                {
+                    ID = idphoto + 1,
+                    URL_Photo = photo
+                };
+                db.Photos.Add(newphoto);
+                db.SaveChanges();
+            }
+            catch
+            {
+                System.Windows.MessageBox.Show("Что-то пошло не так!", $"Ошибка");
+            }
+
+            //потом всё остальное
             try
             {
                 Dishes newdish = new Dishes
@@ -68,6 +94,7 @@ namespace FoodApp
                     Dish_name = name,
                     Description = description,
                     ID_Group = idgr,
+                    ID_Photo = idph,
                     ID = id + 1
                 };
                 db.Dishes.Add(newdish);
@@ -81,6 +108,7 @@ namespace FoodApp
                 System.Windows.MessageBox.Show("Что-то пошло не так!", $"Ошибка");
             }
 
+            
 
 
 
@@ -111,6 +139,11 @@ namespace FoodApp
             {
                 System.Windows.MessageBox.Show(ex.Message.ToString());
             }*/
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new FilterPage());
         }
     }
 }
