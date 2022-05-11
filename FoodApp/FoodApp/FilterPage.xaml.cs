@@ -48,22 +48,18 @@ namespace FoodApp
 
         private void UpdateDishes()
         {
-            var idgr = db.Groups.Where(n => n.Group_name == ComboType.Text).Select(x => x.ID).FirstOrDefault();
             db = new DbRecipes();
+            var idgr = db.Groups.Where(n => n.Group_name == ComboType.Text).Select(x => x.ID).FirstOrDefault();
+
             RecipesView.ItemsSource = db.Dishes.Where(x => x.Dish_name.Contains(TBoxSearch.Text)).ToList();
 
             if (ComboType.SelectedIndex > 0)
-                RecipesView.ItemsSource = db.Dishes.Where(x => x.ID_Group == idgr).ToList(); // НЕ ПАШЕТ
+                RecipesView.ItemsSource = db.Dishes.Where(x => x.ID_Group == ComboType.SelectedIndex).ToList();
         }
 
         public class Ingreds
         {
             public List<Dish_Composition> dc { get; set; } = new List<Dish_Composition>();
-        }
-
-        private void ButtonEdit_Click(object sender, RoutedEventArgs e)
-        {
-            NavigationService.Navigate(new EditPage());
         }
 
         private void ButtonAdd_Click(object sender, RoutedEventArgs e)
@@ -88,6 +84,11 @@ namespace FoodApp
         private void ComboType_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             UpdateDishes();
+        }
+
+        private void Exit_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new LoginPage());
         }
     }
 }

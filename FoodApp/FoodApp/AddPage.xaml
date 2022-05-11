@@ -7,17 +7,51 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="750" Title="AddPage" >
 
-    <Grid Background="White">
+    <Page.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Height" Value="35" />
+            <Setter Property="Background" Value="#ad6a3c" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="Margin" Value="10" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border CornerRadius="20"
+                                Background="{TemplateBinding Background}">
+
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style TargetType="Label">
+            <Setter Property="Height" Value="30" />
+            <Setter Property="Foreground" Value="White" />
+        </Style>
+        <Style TargetType="TextBox">
+            <Setter Property="Background" Value="White" />
+        </Style>
+        <Style TargetType="Hyperlink">
+            <Setter Property="Foreground" Value="White" />
+        </Style>
+        <Style TargetType="TextBlock">
+            <Setter Property="Foreground" Value="White" />
+        </Style>
+    </Page.Resources>
+
+    <Grid Background="#2E1201">
         <StackPanel HorizontalAlignment="Left" Height="285" Margin="416,15,0,0" VerticalAlignment="Top" Width="300">
             <Image Name="ImageViewer1" Height="236" Width="300"/>
             <StackPanel Orientation="Horizontal">
                 <Label  Height="25" x:Name="Label1" Content="Выберите файл:"  Margin="5,0,0,0"/>
-                <Button Height="23" x:Name="BrowseButton" Width="100" Click="BrowseButton_Click" Content="Browse"  Margin="95,0,0,0"/>
+                <Button Height="23" x:Name="BrowseButton" Width="81" Click="BrowseButton_Click" Content="Browse"  Margin="115,0,0,0"/>
             </StackPanel>
             <TextBlock Height="25" x:Name="FileNameLabel"/>
         </StackPanel>
         <Button Content="На главную" HorizontalAlignment="Left" Margin="312,15,0,0" VerticalAlignment="Top" Width="70" Height="70" Click="Button_Click"/>
-        <Label Content="PotatoEat" HorizontalAlignment="Left" Margin="25,25,0,0" VerticalAlignment="Top" FontSize="36" FontFamily="Rockwell"/>
+        <Label Content="PotatoEat" HorizontalAlignment="Left" Margin="25,25,0,0" VerticalAlignment="Top" FontSize="36" FontFamily="Rockwell" Height="60"/>
         <TextBlock HorizontalAlignment="Left" Margin="25,115,0,0" TextWrapping="Wrap" Text="Название" VerticalAlignment="Top" Height="18" Width="60"/>
         <TextBlock HorizontalAlignment="Left" Margin="25,159,0,0" TextWrapping="Wrap" Text="Выберите группу:" VerticalAlignment="Top" Height="18" Width="104"/>
         <TextBlock HorizontalAlignment="Left" Margin="25,199,0,0" TextWrapping="Wrap" Text="Ингридиенты:" VerticalAlignment="Top" Height="18" Width="81"/>

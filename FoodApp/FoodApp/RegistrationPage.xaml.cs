@@ -25,8 +25,7 @@ namespace FoodApp
 
         private void RegistrButton_Click(object sender, RoutedEventArgs e)
         {
-            using (db = new DbRecipes())
-            {
+                db = new DbRecipes();
                 string username = tbusername.Text;
                 string login = tblogin.Text;
                 string password = tbpassword.Password;
@@ -50,7 +49,6 @@ namespace FoodApp
                 {
                     MessageBox.Show("Ошибка!", $"Неверный логин или пароль!");
                 }
-            }
         }
 
         /*private void Button_Click(object sender, RoutedEventArgs e)

@@ -42,7 +42,7 @@ namespace FoodApp
             db = new DbRecipes();
             OpenFileDialog dlg = new OpenFileDialog();
             dlg.InitialDirectory = "c:\\";
-            dlg.Filter = "Image files (*.jpg)|*.jpg|All Files (*.*)|*.*";
+            dlg.Filter = "Image files (*.bmp, *.png, *.jpg)|*.bmp;*.png;*.jpg|All Files (*.*)|*.*";
             dlg.RestoreDirectory = true;
 
             if (dlg.ShowDialog() == System.Windows.Forms.DialogResult.OK)

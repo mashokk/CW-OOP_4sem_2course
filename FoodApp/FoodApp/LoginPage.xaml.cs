@@ -35,11 +35,24 @@ namespace FoodApp
 
             try
             {
+
                 Users user = db.Users.Where((u) => u.Login == login && u.Password == password).Single();
                 //MessageBox.Show("Успешная авторизация!", $"Привет, {user.Username}!");
 
                 isLogin = true;
-                NavigationService.Navigate(new FilterPage());
+                
+
+                if (user.ID == 1)
+                {
+                    MessageBoxResult result = MessageBox.Show("Хотите открыть таблицы с блюдами?", "", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                    if (result == MessageBoxResult.Yes)
+                        NavigationService.Navigate(new EditPage());
+                }
+                else
+                {
+                    NavigationService.Navigate(new FilterPage());
+                }
+                
             }
             catch
             {
