@@ -4,7 +4,6 @@ C:\Study\2 курс\4 семестр\0.КУРСАЧ\FoodApp\FoodApp\bin\Debug\Fo
 C:\Study\2 курс\4 семестр\0.КУРСАЧ\FoodApp\FoodApp\bin\Debug\EntityFramework.dll
 C:\Study\2 курс\4 семестр\0.КУРСАЧ\FoodApp\FoodApp\bin\Debug\EntityFramework.xml
 C:\Study\2 курс\4 семестр\0.КУРСАЧ\FoodApp\FoodApp\bin\Debug\ru\EntityFramework.resources.dll
-C:\Study\2 курс\4 семестр\0.КУРСАЧ\FoodApp\FoodApp\obj\Debug\FoodApp.csproj.AssemblyReference.cache
 C:\Study\2 курс\4 семестр\0.КУРСАЧ\FoodApp\FoodApp\obj\Debug\MainWindow.g.cs
 C:\Study\2 курс\4 семестр\0.КУРСАЧ\FoodApp\FoodApp\obj\Debug\App.g.cs
 C:\Study\2 курс\4 семестр\0.КУРСАЧ\FoodApp\FoodApp\obj\Debug\FoodApp_Content.g.cs
@@ -28,5 +27,4 @@ C:\Study\2 курс\4 семестр\0.КУРСАЧ\FoodApp\FoodApp\obj\Debug\Re
 C:\Study\2 курс\4 семестр\0.КУРСАЧ\FoodApp\FoodApp\obj\Debug\RegistrationPage.baml
 C:\Study\2 курс\4 семестр\0.КУРСАЧ\FoodApp\FoodApp\obj\Debug\AddPage.g.cs
 C:\Study\2 курс\4 семестр\0.КУРСАЧ\FoodApp\FoodApp\obj\Debug\AddPage.baml
-C:\Study\2 курс\4 семестр\0.КУРСАЧ\FoodApp\FoodApp\obj\Debug\InsertWindow.g.cs
-C:\Study\2 курс\4 семестр\0.КУРСАЧ\FoodApp\FoodApp\obj\Debug\InsertWindow.baml
+C:\Study\2 курс\4 семестр\0.КУРСАЧ\FoodApp\FoodApp\obj\Debug\FoodApp.csproj.AssemblyReference.cache

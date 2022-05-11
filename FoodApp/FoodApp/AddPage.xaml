@@ -26,28 +26,7 @@
 
         <TextBox Text="{Binding Dish_name}" x:Name="DishName" HorizontalAlignment="Left" Height="23" Margin="150,115,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="232"/>
         <ComboBox SelectedItem="{Binding ID_Group}" x:Name="ComboGroups" HorizontalAlignment="Left" Margin="150,159,0,0" VerticalAlignment="Top" Width="232"/>
-        <DataGrid x:Name="composingrTable" x:FieldModifier="public" CanUserResizeRows="False" HorizontalAlignment="Left" AutoGenerateColumns="False" Height="77" Margin="150,199,0,0" VerticalAlignment="Top" Width="232">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Ingrs" Width="*" Binding="{Binding ID_Ingredient}"/>
-                
-                <DataGridTemplateColumn>
-                    <DataGridTemplateColumn.HeaderTemplate>
-                        <DataTemplate>
-                            <TextBlock Text="Action"/>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.HeaderTemplate>
-
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <StackPanel Orientation="Horizontal">
-                                <Button x:Name="insertBtn" Content="Insert" Click="insertBtn_Click"/>
-                                <Button x:Name="deleteBtn" Content="Delete" Click="deleteBtn_Click"/>
-                            </StackPanel>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-            </DataGrid.Columns>
-        </DataGrid>
+        
         <Button Content="Добавить рецепт" HorizontalAlignment="Left" Margin="416,305,0,0" VerticalAlignment="Top" Width="300" Height="88" Click="AddSaveButton_Click"/>
         <TextBox x:Name="DescriptionText" Text="{Binding Description}" HorizontalAlignment="Left" Height="88" Margin="25,305,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="357"/>
 

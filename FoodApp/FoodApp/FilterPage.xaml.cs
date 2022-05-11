@@ -28,12 +28,36 @@ namespace FoodApp
             db = new DbRecipes();
             db.Dishes.Load();
             List<Dishes> RV = db.Dishes.Local.ToList();
-            //RecipesView.ItemsSource = RV;
 
-            //ингридиентыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыы
-            //BindingList<Dish_Composition> ingredients = db.Dish_Composition.Local.ToBindingList();
-            //List<Ingredients> items = db.Ingredients.Local.ToList();
-            //lvDataBinding.ItemsSource = items;
+
+            //комбобокс с группой блюда
+            List<Groups> gr = db.Groups.ToList();
+            ComboType.ItemsSource = gr;
+            ComboType.SelectedValuePath = "ID";
+            ComboType.DisplayMemberPath = "Group_name";
+            var allTypes = DbRecipes.GetContext().Groups.ToList(); // ???? 
+            allTypes.Insert(0, new Groups
+            {
+                Group_name = "Все группы"
+            });
+            ComboType.ItemsSource = allTypes;
+            ComboType.SelectedIndex = 0;
+
+            UpdateDishes();
+        }
+
+        private void UpdateDishes()
+        {
+            /* var currentdish = DbRecipes.GetContext().Dishes.ToList();
+
+             //if (ComboType.SelectedIndex > 0)
+             //    currentdish = currentdish.Where(n => n.Groups.Contains(ComboType.SelectedItem as Type)).ToList();
+
+             currentdish = currentdish.Where(p => p.Dish_name.ToLower().Contains(TBoxSearch.Text.ToLower())).ToList();
+ */
+
+            db = new DbRecipes();
+            RecipesView.ItemsSource = db.Dishes.Where(x => x.Dish_name.Contains(TBoxSearch.Text)).ToList();
         }
 
         public class Ingreds
@@ -58,6 +82,16 @@ namespace FoodApp
                 DbRecipes.GetContext().ChangeTracker.Entries().ToList().ForEach(p => p.Reload());
                 RecipesView.ItemsSource = DbRecipes.GetContext().Dishes.ToList();
             }
+        }
+
+        private void TBoxSearch_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            UpdateDishes();
+        }
+
+        private void ComboType_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            UpdateDishes();
         }
     }
 }

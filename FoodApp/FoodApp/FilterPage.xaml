@@ -16,9 +16,9 @@
         <Button Name="ButtonEdit" Click="ButtonEdit_Click" Content="Редактор" HorizontalAlignment="Left" Margin="312,15,0,0" VerticalAlignment="Top" Width="70" Height="70"/>
         <Label Content="PotatoEat" HorizontalAlignment="Left" Margin="25,25,0,0" VerticalAlignment="Top" FontSize="36" FontFamily="Rockwell"/>
         <TextBlock HorizontalAlignment="Left" Margin="25,117,0,0" TextWrapping="Wrap" Text="Введите название блюда:" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="25,138,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="278"/>
+        <TextBox x:Name="TBoxSearch" TextChanged="TBoxSearch_TextChanged" HorizontalAlignment="Left" Height="23" Margin="25,138,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="278"/>
         <TextBlock HorizontalAlignment="Left" Margin="25,184,0,0" TextWrapping="Wrap" Text="Выберите группу (приём пищи):" VerticalAlignment="Top"/>
-        <ComboBox HorizontalAlignment="Left" Margin="25,205,0,0" VerticalAlignment="Top" Width="278"/>
+        <ComboBox x:Name="ComboType" SelectionChanged="ComboType_SelectionChanged" HorizontalAlignment="Left" Margin="25,205,0,0" VerticalAlignment="Top" Width="278"/>
 
 
         <ListView Name="RecipesView" HorizontalAlignment="Left" Height="385" Margin="399,15,0,0" VerticalAlignment="Top" Width="321" Grid.ColumnSpan="2" VirtualizingPanel.ScrollUnit="Pixel" >
