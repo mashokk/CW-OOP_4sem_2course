@@ -34,7 +34,7 @@ namespace FoodApp
             currentTableType = TableType.DishesTT;
             RefreshTable(currentTableType);
         }
-        //Обновляет таблицу (пока что только для ингредиентов)
+        //Обновляет таблицу 
         private void RefreshTable(TableType tt)
         {
             db = new DbRecipes(); //Создаём обект базы данных
