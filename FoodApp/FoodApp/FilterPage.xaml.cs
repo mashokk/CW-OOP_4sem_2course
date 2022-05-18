@@ -35,7 +35,7 @@ namespace FoodApp
             ComboType.ItemsSource = gr;
             ComboType.SelectedValuePath = "ID";
             ComboType.DisplayMemberPath = "Group_name";
-            var allTypes = DbRecipes.GetContext().Groups.ToList(); // ???? 
+            var allTypes = DbRecipes.GetContext().Groups.ToList();
             allTypes.Insert(0, new Groups
             {
                 Group_name = "Все группы"
@@ -89,6 +89,12 @@ namespace FoodApp
         private void Exit_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new LoginPage());
+        }
+        void ListViewItem_MouseDoubleClick(object sender, MouseButtonEventArgs e) //открытие блюда в отдельном окне при двойном клике на item
+        {
+            /*var dish = (sender as TextBlock).Name;
+            Application.Current.Resources["TT"] = dish;*/
+            NavigationService.Navigate(new ViewPage()); //открытие рецепта на полную
         }
     }
 }

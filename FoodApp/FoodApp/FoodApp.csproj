@@ -80,6 +80,9 @@
     </Compile>
     <Compile Include="ViewModel.cs" />
     <Compile Include="ViewModelBase.cs" />
+    <Compile Include="ViewPage.xaml.cs">
+      <DependentUpon>ViewPage.xaml</DependentUpon>
+    </Compile>
     <Page Include="AddPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -127,6 +130,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="RegistrationPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

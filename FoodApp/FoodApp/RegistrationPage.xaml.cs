@@ -51,11 +51,6 @@ namespace FoodApp
                 }
         }
 
-        /*private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            NavigationService.Navigate(new LoginPage());
-        }*/
-
         private void aPicture_MouseDown(object sender, MouseEventArgs e)
         {
             NavigationService.Navigate(new LoginPage());

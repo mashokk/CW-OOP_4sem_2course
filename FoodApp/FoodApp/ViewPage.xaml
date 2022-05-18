@@ -1,0 +1,56 @@
+﻿<Page x:Class="FoodApp.ViewPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:FoodApp"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="750"
+      Title="ViewPage">
+
+    <Page.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Height" Value="35" />
+            <Setter Property="Background" Value="#ad6a3c" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="Margin" Value="10" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border CornerRadius="20"
+                                Background="{TemplateBinding Background}">
+
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style TargetType="Label">
+            <Setter Property="Height" Value="30" />
+            <Setter Property="Foreground" Value="White" />
+        </Style>
+        <Style TargetType="TextBox">
+            <Setter Property="Background" Value="White" />
+        </Style>
+        <Style TargetType="Hyperlink">
+            <Setter Property="Foreground" Value="White" />
+        </Style>
+        <Style TargetType="TextBlock">
+            <Setter Property="Foreground" Value="White" />
+        </Style>
+    </Page.Resources>
+
+    <Grid  Background="#2E1201">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="24*"/>
+        </Grid.ColumnDefinitions>
+        <Image Source="{Binding Photos.URL_Photo}" HorizontalAlignment="Left" Height="249" Margin="1.6,30,0,0" VerticalAlignment="Top" Width="301" Grid.Column="1"/>
+        <TextBlock Text="{Binding Dish_name}" x:Name="DName" HorizontalAlignment="Left" FontSize="20" Margin="1.6,304,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Grid.Column="1" Height="27" Width="153"/>
+        <TextBlock Text="{Binding Groups.Group_name}" HorizontalAlignment="Left" Margin="30,349,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+        <TextBlock Text="{Binding Description}" Grid.Column="1" HorizontalAlignment="Left" Margin="353.6,30,0,-175.4" TextWrapping="Wrap" VerticalAlignment="Top" Height="595" Width="337"/>
+
+    </Grid>
+</Page>
