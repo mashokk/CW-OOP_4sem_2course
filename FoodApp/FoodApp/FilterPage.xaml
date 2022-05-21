@@ -64,7 +64,7 @@
         <ComboBox x:Name="ComboType" SelectionChanged="ComboType_SelectionChanged" HorizontalAlignment="Left" Margin="25,205,0,0" VerticalAlignment="Top" Width="278" Height="22"/>
 
 
-        <ListView Name="RecipesView" HorizontalAlignment="Left" Height="385" Margin="391,15,0,0" VerticalAlignment="Top" Width="340" Grid.ColumnSpan="2" VirtualizingPanel.ScrollUnit="Pixel" >
+        <ListView x:Name="RecipesView" HorizontalAlignment="Left" Height="385" Margin="391,15,0,0" VerticalAlignment="Top" Width="340" Grid.ColumnSpan="2" VirtualizingPanel.ScrollUnit="Pixel" >
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Grid Width="300">
@@ -87,5 +87,6 @@
 
         <Button Content="Добавить" HorizontalAlignment="Left" Margin="233,15,0,0" VerticalAlignment="Top" Width="70" Height="70" Click="ButtonAdd_Click"/>
         <Button Content="Сгенерировать рандомно" HorizontalAlignment="Left" Margin="25,365,0,0" VerticalAlignment="Top" Width="278"/>
+        <TextBox x:Name="AAA" HorizontalAlignment="Left" Margin="312,278,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="27" Width="28"/>
     </Grid>
 </Page>

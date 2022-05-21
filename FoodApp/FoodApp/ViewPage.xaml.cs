@@ -21,17 +21,13 @@ namespace FoodApp
     public partial class ViewPage : Page
     {
         DbRecipes db; //Для работы с базой
-        public ViewPage()
+        public ViewPage(object dish)
         {
             InitializeComponent();
-            using (DbRecipes db = new DbRecipes())
+            /*using (DbRecipes db = new DbRecipes())
             {
-                /*var nnamee = Application.Current.Resources["TT"];
-                string d = nnamee.ToString();
-                var dish = db.Dishes.Where(n => n.Dish_name == d).Select(x => x.ID).FirstOrDefault();
-
-                DName.Text = dish.ID;*/
-            }
+            }*/
+            DataContext = dish;
         }
     }
 }

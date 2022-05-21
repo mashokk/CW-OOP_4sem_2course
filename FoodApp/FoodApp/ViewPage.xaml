@@ -49,7 +49,7 @@
         </Grid.ColumnDefinitions>
         <Image Source="{Binding Photos.URL_Photo}" HorizontalAlignment="Left" Height="249" Margin="1.6,30,0,0" VerticalAlignment="Top" Width="301" Grid.Column="1"/>
         <TextBlock Text="{Binding Dish_name}" x:Name="DName" HorizontalAlignment="Left" FontSize="20" Margin="1.6,304,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Grid.Column="1" Height="27" Width="153"/>
-        <TextBlock Text="{Binding Groups.Group_name}" HorizontalAlignment="Left" Margin="30,349,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+        <TextBlock Text="{Binding Groups.Group_name}" HorizontalAlignment="Left" Margin="30,349,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="210"/>
         <TextBlock Text="{Binding Description}" Grid.Column="1" HorizontalAlignment="Left" Margin="353.6,30,0,-175.4" TextWrapping="Wrap" VerticalAlignment="Top" Height="595" Width="337"/>
 
     </Grid>
