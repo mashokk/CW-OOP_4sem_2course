@@ -86,7 +86,6 @@
 
 
         <Button Content="Добавить" HorizontalAlignment="Left" Margin="233,15,0,0" VerticalAlignment="Top" Width="70" Height="70" Click="ButtonAdd_Click"/>
-        <Button Content="Сгенерировать рандомно" HorizontalAlignment="Left" Margin="25,365,0,0" VerticalAlignment="Top" Width="278"/>
-        <TextBox x:Name="AAA" HorizontalAlignment="Left" Margin="312,278,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="27" Width="28"/>
+        <Button Content="Сгенерировать рандомно" x:Name="RandGenerate" Click="RandGenerate_Click" HorizontalAlignment="Left" Margin="25,365,0,0" VerticalAlignment="Top" Width="278"/>
     </Grid>
 </Page>

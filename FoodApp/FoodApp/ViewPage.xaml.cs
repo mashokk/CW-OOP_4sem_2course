@@ -29,5 +29,10 @@ namespace FoodApp
             }*/
             DataContext = dish;
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new FilterPage());
+        }
     }
 }

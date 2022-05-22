@@ -28,18 +28,11 @@ namespace FoodApp
             InitializeComponent();
 
 
-            var data = RecipesView.ItemsSource;
 
 
 
             db = new DbRecipes();
             db.Dishes.Load();
-            //List<Dishes> RV = db.Dishes.Local.ToList();
-
-            /*int IDElement = RecipesView.SelectedIndex;
-            int i = (sender as ListView).SelectedIndex + 1;
-            AAA.Text = IDElement.ToString();*/
-
 
 
             //комбобокс с группой блюда
@@ -56,28 +49,6 @@ namespace FoodApp
             ComboType.SelectedIndex = 0;
 
             UpdateDishes();
-
-
-
-            /////////////////////////////////////////////////////////////////////////хрень полная
-            /*int indexdish = 0;
-            indexdish = RecipesView.SelectedIndex;
-            AAA.Text = indexdish.ToString();*/
-
-            /////////////////////////////////////////////////////////////////////////хрень полная
-            /*int indexdish = 0;
-            if (RecipesView.SelectedItems.Count > 0)
-            {
-                for (int lcount = 0; lcount <= RecipesView.Items.Count - 1; lcount++)
-                {
-                    if (RecipesView.Items[lcount].Selected == true)
-                    {
-                        indexdish = RecipesView.SelectedIndex;
-                        break;
-                    }
-                }
-            }
-            AAA.Text = indexdish.ToString();*/
 
         }
 
@@ -129,17 +100,6 @@ namespace FoodApp
         }
         void ListViewItem_MouseDoubleClick(object sender, MouseButtonEventArgs e) //открытие блюда в отдельном окне при двойном клике на item
         {
-            /*var dish = (sender as TextBlock).Name;
-            Application.Current.Resources["TT"] = dish;*/
-
-
-            //NavigationService.Navigate(new ViewPage()); //открытие рецепта на полную
-
-
-
-
-
-
             if (e.ChangedButton == MouseButton.Left)
             {
                 var item = e.Source as ListViewItem;
@@ -148,5 +108,9 @@ namespace FoodApp
             }
         }
 
+        private void RandGenerate_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
