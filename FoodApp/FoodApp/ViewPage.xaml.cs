@@ -15,18 +15,12 @@ using System.Windows.Shapes;
 
 namespace FoodApp
 {
-    /// <summary>
-    /// Логика взаимодействия для ViewPage.xaml
-    /// </summary>
     public partial class ViewPage : Page
     {
         DbRecipes db; //Для работы с базой
         public ViewPage(object dish)
         {
             InitializeComponent();
-            /*using (DbRecipes db = new DbRecipes())
-            {
-            }*/
             DataContext = dish;
         }
 

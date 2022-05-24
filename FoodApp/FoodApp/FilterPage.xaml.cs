@@ -28,9 +28,6 @@ namespace FoodApp
             InitializeComponent();
 
 
-
-
-
             db = new DbRecipes();
             db.Dishes.Load();
 
@@ -110,7 +107,15 @@ namespace FoodApp
 
         private void RandGenerate_Click(object sender, RoutedEventArgs e)
         {
+            int id = db.Dishes.Max(m => m.ID);
+            Random rnd = new Random();
+            int value = rnd.Next(1, id + 1);
 
+            var dish = db.Dishes.Where(n => n.ID == value).Select(x => x.Dish_name).FirstOrDefault();
+
+            //MessageBox.Show(String.Format("Рекомендуем Вам приготовить блюдо: {0}.", dish), "Рандомное блюдо!");
+
+            TBoxSearch.Text = dish;
         }
     }
 }
