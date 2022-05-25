@@ -61,6 +61,7 @@ namespace FoodApp
         private void AddSaveButton_Click(object sender, RoutedEventArgs e)
         {
             
+
             //инициализация пути к изображению
             string name = DishName.Text;
             string description = DescriptionText.Text;
@@ -85,14 +86,30 @@ namespace FoodApp
                 };
                 db.Photos.Add(newphoto);
                 db.SaveChanges();
+
+
+
+                Dishes newdish = new Dishes
+                {
+                    Dish_name = name,
+                    Description = description,
+                    ID_Group = idgr,
+                    ID_Photo = idph,
+                    ID = id + 1
+                };
+                db.Dishes.Add(newdish);
+                db.SaveChanges();
+                Dishes user = db.Dishes.FirstOrDefault((u) => u.Dish_name == name);
+                System.Windows.MessageBox.Show("Рецепт успешно добавлен", $"Готово");
+                NavigationService.Navigate(new FilterPage());
             }
             catch
             {
-                System.Windows.MessageBox.Show("Что-то пошло не так с фото!", $"Ошибка");
+                System.Windows.MessageBox.Show("Ошибка с добавлением!", $"Ошибка");
             }
 
             //потом всё остальное
-            try
+            /*try
             {
                 Dishes newdish = new Dishes
                 {
@@ -111,7 +128,7 @@ namespace FoodApp
             catch
             {
                 System.Windows.MessageBox.Show("Что-то пошло не так со всем!", $"Ошибка");
-            }
+            }*/
 
 
         }
