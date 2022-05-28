@@ -58,6 +58,8 @@ namespace FoodApp
             ComboIngr.ItemsSource = allTypes2;
             ComboIngr.SelectedIndex = 0;
 
+            
+
             UpdateDishes();
 
         }
@@ -65,22 +67,25 @@ namespace FoodApp
         private void UpdateDishes()
         {
             db = new DbRecipes();
-            //var idingr = db.Ingredients.Where(u => u.Ingredient_name == ComboIngr.Text).Select(i => i.ID).FirstOrDefault();
-            //var iddish = db.Dish_Composition.Where(u => u.ID_Ingredient == idingr).Select(i => i.ID_Dish).FirstOrDefault();
+            //int iddish = 1;
 
             RecipesView.ItemsSource = db.Dishes.Where(x => x.Dish_name.Contains(TBoxSearch.Text)).ToList();
 
-            if (ComboType.SelectedIndex > 0)
-                RecipesView.ItemsSource = db.Dishes.Where(x => x.ID_Group == ComboType.SelectedIndex).ToList();
-
             if (ComboIngr.SelectedIndex > 0)
             {
-                var idingr = db.Dish_Composition.Where(u => u.ID_Ingredient == ComboIngr.SelectedIndex).Select(i => i.ID_Dish).FirstOrDefault();
+
+                //iddish = Convert.ToInt32(db.Dish_Composition.Where(u => u.ID_Ingredient == ComboIngr.SelectedIndex).Select(i => i.ID_Dish).FirstOrDefault()); //ошибка исправлена int? в int
+                var iddish = db.Dish_Composition.Where(u => u.ID_Ingredient == ComboIngr.SelectedIndex).Select(i => i.ID_Dish).FirstOrDefault(); //ошибка исправлена int? в int
+
                 //var iddish = db.Dishes.Where(u => u.ID == idingr).FirstOrDefault();
-                RecipesView.ItemsSource = db.Dishes.Where(e => e.ID == idingr).ToList();
+                RecipesView.ItemsSource = db.Dishes.Where(e => e.ID == iddish).ToList();
+            }
+
+            if (ComboType.SelectedIndex > 0)
+            {
+                RecipesView.ItemsSource = db.Dishes.Where(x => x.ID_Group == ComboType.SelectedIndex).ToList();
             }
                 
-
         }
 
         public class Ingreds

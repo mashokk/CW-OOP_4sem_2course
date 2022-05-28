@@ -17,10 +17,12 @@ namespace FoodApp
 {
     public partial class ViewPage : Page
     {
+        DbRecipes db = new DbRecipes(); //Для работы с базой
         public ViewPage(object dish)
         {
             InitializeComponent();
             DataContext = dish;
+
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
