@@ -17,7 +17,6 @@ namespace FoodApp
 {
     public partial class ViewPage : Page
     {
-        DbRecipes db; //Для работы с базой
         public ViewPage(object dish)
         {
             InitializeComponent();

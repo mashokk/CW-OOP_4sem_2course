@@ -46,11 +46,11 @@
             <Image Name="ImageViewer1" Height="236" Width="300"/>
             <StackPanel Orientation="Horizontal">
                 <Label  Height="25" x:Name="Label1" Content="Выберите файл:"  Margin="5,0,0,0"/>
-                <Button Height="23" x:Name="BrowseButton" Width="81" Click="BrowseButton_Click" Content="Browse"  Margin="115,0,0,0"/>
+                <Button Height="23" x:Name="BrowseButton" Width="81" Click="BrowseButton_Click" Content="Browse"  Margin="115,0,0,0" Cursor="Hand"/>
             </StackPanel>
             <TextBlock Height="25" x:Name="FileNameLabel"/>
         </StackPanel>
-        <Button Content="На главную" HorizontalAlignment="Left" Margin="312,15,0,0" VerticalAlignment="Top" Width="70" Height="70" Click="Button_Click"/>
+        <Button Content="На главную" HorizontalAlignment="Left" Margin="312,15,0,0" VerticalAlignment="Top" Width="70" Height="70" Click="Button_Click" Cursor="Hand"/>
         <Label Content="PotatoEat" HorizontalAlignment="Left" Margin="25,25,0,0" VerticalAlignment="Top" FontSize="36" FontFamily="Rockwell" Height="60"/>
         <TextBlock HorizontalAlignment="Left" Margin="25,115,0,0" TextWrapping="Wrap" Text="Название" VerticalAlignment="Top" Height="18" Width="60"/>
         <TextBlock HorizontalAlignment="Left" Margin="25,159,0,0" TextWrapping="Wrap" Text="Выберите группу:" VerticalAlignment="Top" Height="18" Width="104"/>
@@ -61,7 +61,7 @@
         <TextBox Text="{Binding Dish_name}" x:Name="DishName" HorizontalAlignment="Left" Height="23" Margin="150,115,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="232"/>
         <ComboBox SelectedItem="{Binding ID_Group}" x:Name="ComboGroups" HorizontalAlignment="Left" Margin="150,159,0,0" VerticalAlignment="Top" Width="232"/>
 
-        <Button Content="Добавить рецепт" HorizontalAlignment="Left" Margin="416,305,0,0" VerticalAlignment="Top" Width="300" Height="88" Click="AddSaveButton_Click"/>
+        <Button Content="Добавить рецепт" HorizontalAlignment="Left" Margin="416,305,0,0" VerticalAlignment="Top" Width="300" Height="88" Click="AddSaveButton_Click" Cursor="Hand"/>
         <TextBox x:Name="DescriptionText" Text="{Binding Description}" HorizontalAlignment="Left" Height="88" Margin="25,305,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="357"/>
         <DataGrid HorizontalAlignment="Left" Height="78" Margin="150,199,0,0" VerticalAlignment="Top" Width="232"/>
 

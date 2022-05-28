@@ -40,13 +40,13 @@ namespace FoodApp
             db = new DbRecipes(); //Создаём обект базы данных
             switch (tt)
             {
-                case TableType.IngredientsTT:
+                /*case TableType.IngredientsTT:
                     db.Ingredients.Load();
                     int id1 = db.Ingredients.Max(m => m.ID);
                     BindingList<Ingredients> blIngredient = db.Ingredients.Local.ToBindingList(); //Получаем коллекцию BindingList
                     blIngredient.AddingNew += (sender, e) => e.NewObject = new Ingredients() { ID = id1 + 1, Ingredient_name = "<новый>" }; //Задаем шаблон для новой записи
                     this.ingredientTable.ItemsSource = blIngredient; //Задаем BindingList<> как источник данных
-                    break;
+                    break;*/
 
                 case TableType.CompositionTT:
                     db.Dish_Composition.Load();
@@ -58,14 +58,14 @@ namespace FoodApp
                     this.colIngred.ItemsSource = db.Ingredients.ToArray();
                     break;
 
-                case TableType.DishesTT:
+                /*case TableType.DishesTT:
                     db.Dishes.Load();
                     int id3 = db.Dishes.Max(m => m.ID); //индекс
                     BindingList<Dishes> blDishes = db.Dishes.Local.ToBindingList();
                     blDishes.AddingNew += (sender, e) => e.NewObject = new Dishes() { ID = id3 + 1, Dish_name = "<новый>", ID_Group = 0, Description = "<описание>", ID_Photo = 0 };
                     this.dishesTable.ItemsSource = blDishes;
                     this.colGroup.ItemsSource = db.Groups.ToArray();
-                    break;
+                    break;*/
             }
         }
 
@@ -77,15 +77,15 @@ namespace FoodApp
             DataGrid currTable = null;
             switch (tt)
             {
-                case TableType.IngredientsTT:
+                /*case TableType.IngredientsTT:
                     currTable = ingredientTable;
-                    break;
+                    break;*/
                 case TableType.CompositionTT:
                     currTable = compositionTable;
                     break;
-                case TableType.DishesTT:
+                /*case TableType.DishesTT:
                     currTable = dishesTable;
-                    break;
+                    break;*/
             }
 
             int si = currTable.SelectedIndex; //Сохраняем индекс текущей выделенной строки
@@ -98,21 +98,21 @@ namespace FoodApp
         {
             switch (tt)
             {
-                case TableType.IngredientsTT:
+                /*case TableType.IngredientsTT:
                     if (ingredientTable.SelectedItem is Ingredients v && v.Dish_Composition.Count == 0)
                         db.Ingredients.Local.Remove(v);
                     else
                         MessageBox.Show("Данный ингридиент уже содержится в блюдах. Удаление невозможно!",
                             "Ошибка", MessageBoxButton.OK, MessageBoxImage.Exclamation);
-                    break;
+                    break;*/
                 case TableType.CompositionTT:
                     if (compositionTable.SelectedItem is Dish_Composition d)
                         db.Dish_Composition.Local.Remove(d);
                     break;
-                case TableType.DishesTT:
+                /*case TableType.DishesTT:
                     if (dishesTable.SelectedItem is Dishes b)
                         db.Dishes.Local.Remove(b);
-                    break;
+                    break;*/
             }
         }
 

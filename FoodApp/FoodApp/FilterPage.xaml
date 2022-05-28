@@ -56,7 +56,7 @@
             <ColumnDefinition Width="391*"/>
             <ColumnDefinition Width="359*"/>
         </Grid.ColumnDefinitions>
-        <Button Name="Exit" Content="Выйти" HorizontalAlignment="Left" Margin="312,15,0,0" VerticalAlignment="Top" Width="70" Height="70" Click="Exit_Click"/>
+        <Button Name="Exit" Content="Выйти" HorizontalAlignment="Left" Margin="312,15,0,0" VerticalAlignment="Top" Width="70" Height="70" Click="Exit_Click" Cursor="Hand"/>
         <Label Content="PotatoEat" HorizontalAlignment="Left" Margin="25,25,0,0" VerticalAlignment="Top" FontSize="36" FontFamily="Rockwell" Height="60" Width="165"/>
         <TextBlock HorizontalAlignment="Left" Margin="25,117,0,0" TextWrapping="Wrap" Text="Введите название блюда:" VerticalAlignment="Top" Height="16" Width="140"/>
         <TextBox x:Name="TBoxSearch" TextChanged="TBoxSearch_TextChanged" HorizontalAlignment="Left" Height="23" Margin="25,138,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="278"/>
@@ -85,7 +85,7 @@
         </ListView>
 
 
-        <Button Content="Добавить" HorizontalAlignment="Left" Margin="233,15,0,0" VerticalAlignment="Top" Width="70" Height="70" Click="ButtonAdd_Click"/>
-        <Button Content="Сгенерировать рандомно" x:Name="RandGenerate" Click="RandGenerate_Click" HorizontalAlignment="Left" Margin="25,365,0,0" VerticalAlignment="Top" Width="278"/>
+        <Button Content="Добавить" HorizontalAlignment="Left" Margin="233,15,0,0" VerticalAlignment="Top" Width="70" Height="70" Click="ButtonAdd_Click" Cursor="Hand"/>
+        <Button Content="Сгенерировать рандомно" x:Name="RandGenerate" Click="RandGenerate_Click" HorizontalAlignment="Left" Margin="25,365,0,0" VerticalAlignment="Top" Width="278" Cursor="Hand"/>
     </Grid>
 </Page>

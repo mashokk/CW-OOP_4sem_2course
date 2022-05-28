@@ -8,9 +8,57 @@
       d:DesignHeight="450" d:DesignWidth="750"
       Title="EditPage">
 
-    <Grid Background="White">
-        <TabControl>
-            <TabItem Header="Блюда" GotFocus="TabItem_GotFocus">
+    <Page.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Height" Value="35" />
+            <Setter Property="Background" Value="#ad6a3c" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="Margin" Value="10" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border CornerRadius="20"
+                                Background="{TemplateBinding Background}">
+
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style TargetType="Label">
+            <Setter Property="Height" Value="30" />
+            <Setter Property="Foreground" Value="White" />
+        </Style>
+        <Style TargetType="TextBox">
+            <Setter Property="Background" Value="White" />
+        </Style>
+        <Style TargetType="Hyperlink">
+            <Setter Property="Foreground" Value="White" />
+        </Style>
+        <Style TargetType="TextBlock">
+            <Setter Property="Foreground" Value="White" />
+        </Style>
+        <Style TargetType="ListView">
+            <Setter Property="Background" Value="#ad6a3c" />
+            <Setter Property="Foreground" Value="White" />
+        </Style>
+        <Style TargetType="{x:Type DataGridColumnHeader}">
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+            <Setter Property="Height" Value="35" />
+            <Setter Property="SeparatorBrush" Value="DarkRed" />
+            <Setter Property="Background" Value="#ad6a3c"/>
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="BorderBrush" Value="White" />
+            <Setter Property="BorderThickness" Value="0.5" />
+        </Style>
+    </Page.Resources>
+
+    <Grid Background="#2E1201">
+
+        <!--<TabControl>-->
+            <!--<TabItem Header="Блюда" GotFocus="TabItem_GotFocus">
                 <DockPanel>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="10" Height="25" DockPanel.Dock="Top">
                         <Button Content="На главную" Margin="175, 0" Width="140" Click="BackButton_Click"/>
@@ -37,25 +85,25 @@
                         </DataGrid.Columns>
                     </DataGrid>
                 </DockPanel>
-            </TabItem>
+            </TabItem>-->
 
-            <TabItem Header="Состав блюда" GotFocus="TabItem_GotFocus">
+            <!--<TabItem Header="Состав блюда" GotFocus="TabItem_GotFocus">-->
                 <DockPanel>
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="10" Height="25" DockPanel.Dock="Top">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="-146,10,9.8,10" Height="43" DockPanel.Dock="Top">
                         <Button Content="На главную" Margin="175, 0" Width="140" Click="BackButton_Click"/>
                         <Button Content="Сохранить изменения" Margin="3 0" Width="150" Click="SaveChangesButton_Click"/>
                         <Button Content="Отменить изменения" Margin="3 0" Width="150" Click="CancelChangesButton_Click"/>
                         <Button Content="Удалить" Margin="3 0" Width="70" Click="DeleteButton_Click"/>
                     </StackPanel>
 
-                    <DataGrid x:Name="compositionTable" CanUserResizeRows="False" AutoGenerateColumns="False" Margin="10 0 10 10">
+                    <DataGrid x:Name="compositionTable" CanUserResizeRows="False" AutoGenerateColumns="False" Margin="10 0 10 10" Background="#2E1201">
                         <DataGrid.Columns>
-                            <DataGridComboBoxColumn x:Name="colDish" Header="Блюдо"
+                            <DataGridComboBoxColumn x:Name="colDish" Header="   Блюдо"
                                     DisplayMemberPath="Dish_name"
                                     SelectedValuePath="ID" 
                                     SelectedValueBinding="{Binding Path=ID_Dish}" 
                                     Width="*"/>
-                            <DataGridComboBoxColumn x:Name="colIngred" Header="Ингридиент"
+                            <DataGridComboBoxColumn x:Name="colIngred" Header="   Ингридиент"
                                     DisplayMemberPath="Ingredient_name"
                                     SelectedValuePath="ID" 
                                     SelectedValueBinding="{Binding Path=ID_Ingredient}" 
@@ -63,10 +111,10 @@
                         </DataGrid.Columns>
                     </DataGrid>
                 </DockPanel>
-            </TabItem>
+            <!--</TabItem>-->
 
 
-            <TabItem Header="Ингридиенты" GotFocus="TabItem_GotFocus">
+            <!--<TabItem Header="Ингридиенты" GotFocus="TabItem_GotFocus">
                 <DockPanel>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="10" Height="25" DockPanel.Dock="Top">
                         <Button Content="На главную" Margin="175, 0" Width="140" Click="BackButton_Click"/>
@@ -80,7 +128,7 @@
                         </DataGrid.Columns>
                     </DataGrid>
                 </DockPanel>
-            </TabItem>
-        </TabControl>
+            </TabItem>-->
+        <!--</TabControl>-->
     </Grid>
 </Page>
