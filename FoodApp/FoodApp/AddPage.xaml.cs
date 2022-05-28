@@ -1,20 +1,13 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data.Entity;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Forms;
-using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
+using OpenFileDialog = System.Windows.Forms.OpenFileDialog;
 
 namespace FoodApp
 {
@@ -45,7 +38,7 @@ namespace FoodApp
             dlg.Filter = "Image files (*.bmp, *.png, *.jpg)|*.bmp;*.png;*.jpg|All Files (*.*)|*.*";
             dlg.RestoreDirectory = true;
 
-            if (dlg.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            if (dlg.ShowDialog() == DialogResult.OK)
             {
                 string selectedFileName = dlg.FileName;
                 FileNameLabel.Text = selectedFileName;
@@ -76,7 +69,6 @@ namespace FoodApp
 
             var iddsh = db.Dish_Composition.Where(w => w.ID_Dish == id).Select(z => z.ID).FirstOrDefault();
 
-            //сначала добавляю фото
             try
             {
                 Photos newphoto = new Photos
@@ -101,36 +93,13 @@ namespace FoodApp
                 db.SaveChanges();
                 Dishes user = db.Dishes.FirstOrDefault((u) => u.Dish_name == name);
                 System.Windows.MessageBox.Show("Рецепт успешно добавлен", $"Готово");
-                NavigationService.Navigate(new FilterPage());
-            }
-            catch
-            {
-                System.Windows.MessageBox.Show("Ошибка с добавлением!", $"Ошибка");
-            }
 
-            //потом всё остальное
-            /*try
-            {
-                Dishes newdish = new Dishes
-                {
-                    Dish_name = name,
-                    Description = description,
-                    ID_Group = idgr,
-                    ID_Photo = idph,
-                    ID = id + 1
-                };
-                db.Dishes.Add(newdish);
-                db.SaveChanges();
-                Dishes user = db.Dishes.FirstOrDefault((u) => u.Dish_name == name);
-                System.Windows.MessageBox.Show("Рецепт успешно добавлен", $"Готово");
-                NavigationService.Navigate(new FilterPage());
+                NavigationService.Navigate(new EditPage());
             }
-            catch
+            catch (Exception ex)
             {
-                System.Windows.MessageBox.Show("Что-то пошло не так со всем!", $"Ошибка");
-            }*/
-
-
+                System.Windows.MessageBox.Show(ex.Message);
+            }
         }
 
 

@@ -45,6 +45,19 @@ namespace FoodApp
             ComboType.ItemsSource = allTypes;
             ComboType.SelectedIndex = 0;
 
+            //комбобокс с ингридиентами
+            List<Ingredients> ingredients = db.Ingredients.ToList();
+            ComboIngr.ItemsSource = ingredients;
+            ComboIngr.SelectedValuePath = "ID";
+            ComboIngr.DisplayMemberPath = "Ingredient_name";
+            var allTypes2 = DbRecipes.GetContext().Ingredients.ToList();
+            allTypes2.Insert(0, new Ingredients
+            {
+                Ingredient_name = "Все ингредиенты"
+            });
+            ComboIngr.ItemsSource = allTypes2;
+            ComboIngr.SelectedIndex = 0;
+
             UpdateDishes();
 
         }
@@ -52,14 +65,22 @@ namespace FoodApp
         private void UpdateDishes()
         {
             db = new DbRecipes();
-            var idgr = db.Groups.Where(n => n.Group_name == ComboType.Text).Select(x => x.ID).FirstOrDefault();
+            //var idingr = db.Ingredients.Where(u => u.Ingredient_name == ComboIngr.Text).Select(i => i.ID).FirstOrDefault();
+            //var iddish = db.Dish_Composition.Where(u => u.ID_Ingredient == idingr).Select(i => i.ID_Dish).FirstOrDefault();
 
             RecipesView.ItemsSource = db.Dishes.Where(x => x.Dish_name.Contains(TBoxSearch.Text)).ToList();
 
             if (ComboType.SelectedIndex > 0)
                 RecipesView.ItemsSource = db.Dishes.Where(x => x.ID_Group == ComboType.SelectedIndex).ToList();
 
-            
+            if (ComboIngr.SelectedIndex > 0)
+            {
+                var idingr = db.Dish_Composition.Where(u => u.ID_Ingredient == ComboIngr.SelectedIndex).Select(i => i.ID_Dish).FirstOrDefault();
+                //var iddish = db.Dishes.Where(u => u.ID == idingr).FirstOrDefault();
+                RecipesView.ItemsSource = db.Dishes.Where(e => e.ID == idingr).ToList();
+            }
+                
+
         }
 
         public class Ingreds
@@ -95,6 +116,7 @@ namespace FoodApp
         {
             NavigationService.Navigate(new LoginPage());
         }
+
         void ListViewItem_MouseDoubleClick(object sender, MouseButtonEventArgs e) //открытие блюда в отдельном окне при двойном клике на item
         {
             if (e.ChangedButton == MouseButton.Left)
@@ -116,6 +138,11 @@ namespace FoodApp
             //MessageBox.Show(String.Format("Рекомендуем Вам приготовить блюдо: {0}.", dish), "Рандомное блюдо!");
 
             TBoxSearch.Text = dish;
+        }
+
+        private void ComboIngr_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

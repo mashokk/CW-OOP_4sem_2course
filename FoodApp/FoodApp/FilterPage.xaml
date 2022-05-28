@@ -47,6 +47,7 @@
         <Style TargetType="ListViewItem">
             <EventSetter Event="MouseDoubleClick" Handler="ListViewItem_MouseDoubleClick"/>
         </Style>
+        
 
     </Page.Resources>
 
@@ -62,7 +63,7 @@
         <TextBox x:Name="TBoxSearch" TextChanged="TBoxSearch_TextChanged" HorizontalAlignment="Left" Height="23" Margin="25,138,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="278"/>
         <TextBlock HorizontalAlignment="Left" Margin="25,184,0,0" TextWrapping="Wrap" Text="Выберите группу (приём пищи):" VerticalAlignment="Top" Height="16" Width="177"/>
         <ComboBox x:Name="ComboType" SelectionChanged="ComboType_SelectionChanged" HorizontalAlignment="Left" Margin="25,205,0,0" VerticalAlignment="Top" Width="278" Height="22"/>
-
+        <ComboBox x:Name="ComboIngr" SelectionChanged="ComboIngr_SelectionChanged" HorizontalAlignment="Left" Margin="25,272,0,0" VerticalAlignment="Top" Width="278"/>
 
         <ListView x:Name="RecipesView" HorizontalAlignment="Left" Height="385" Margin="391,15,0,0" VerticalAlignment="Top" Width="340" Grid.ColumnSpan="2" VirtualizingPanel.ScrollUnit="Pixel" >
             <ListView.ItemTemplate>
@@ -87,5 +88,6 @@
 
         <Button Content="Добавить" HorizontalAlignment="Left" Margin="233,15,0,0" VerticalAlignment="Top" Width="70" Height="70" Click="ButtonAdd_Click" Cursor="Hand"/>
         <Button Content="Сгенерировать рандомно" x:Name="RandGenerate" Click="RandGenerate_Click" HorizontalAlignment="Left" Margin="25,365,0,0" VerticalAlignment="Top" Width="278" Cursor="Hand"/>
+        
     </Grid>
 </Page>
