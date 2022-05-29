@@ -31,6 +31,20 @@ namespace FoodApp
             db = new DbRecipes();
             db.Dishes.Load();
 
+            //комбобокс с ингридиентами
+            List<Ingredients> ingredients = db.Ingredients.ToList();
+            ComboIngr.ItemsSource = ingredients;
+            ComboIngr.SelectedValuePath = "ID";
+            ComboIngr.DisplayMemberPath = "Ingredient_name";
+            var allTypes2 = DbRecipes.GetContext().Ingredients.ToList();
+            allTypes2.Insert(0, new Ingredients
+            {
+                Ingredient_name = "Все ингредиенты"
+            });
+            ComboIngr.ItemsSource = allTypes2;
+            ComboIngr.SelectedIndex = 0;
+
+
 
             //комбобокс с группой блюда
             List<Groups> gr = db.Groups.ToList();
@@ -45,18 +59,8 @@ namespace FoodApp
             ComboType.ItemsSource = allTypes;
             ComboType.SelectedIndex = 0;
 
-            //комбобокс с ингридиентами
-            List<Ingredients> ingredients = db.Ingredients.ToList();
-            ComboIngr.ItemsSource = ingredients;
-            ComboIngr.SelectedValuePath = "ID";
-            ComboIngr.DisplayMemberPath = "Ingredient_name";
-            var allTypes2 = DbRecipes.GetContext().Ingredients.ToList();
-            allTypes2.Insert(0, new Ingredients
-            {
-                Ingredient_name = "Все ингредиенты"
-            });
-            ComboIngr.ItemsSource = allTypes2;
-            ComboIngr.SelectedIndex = 0;
+
+            
 
             
 
@@ -69,23 +73,27 @@ namespace FoodApp
             db = new DbRecipes();
             //int iddish = 1;
 
-            RecipesView.ItemsSource = db.Dishes.Where(x => x.Dish_name.Contains(TBoxSearch.Text)).ToList();
+            
 
-            if (ComboIngr.SelectedIndex > 0)
+
+            RecipesView.ItemsSource = db.Dishes.Where(x => x.Dish_name.Contains(TBoxSearch.Text)).ToList(); //НАЗВАНИЕ
+
+
+            if (ComboIngr.SelectedIndex > 0) //ИНГРИДИЕНТЫ
             {
-
-                //iddish = Convert.ToInt32(db.Dish_Composition.Where(u => u.ID_Ingredient == ComboIngr.SelectedIndex).Select(i => i.ID_Dish).FirstOrDefault()); //ошибка исправлена int? в int
-                var iddish = db.Dish_Composition.Where(u => u.ID_Ingredient == ComboIngr.SelectedIndex).Select(i => i.ID_Dish).FirstOrDefault(); //ошибка исправлена int? в int
-
+                var iddish = db.Dish_Composition.Where(u => u.ID_Ingredient == ComboIngr.SelectedIndex).Select(i => i.ID_Dish).FirstOrDefault();
+                delll.Text = iddish.ToString();
                 //var iddish = db.Dishes.Where(u => u.ID == idingr).FirstOrDefault();
                 RecipesView.ItemsSource = db.Dishes.Where(e => e.ID == iddish).ToList();
+                return;
             }
 
-            if (ComboType.SelectedIndex > 0)
+            if (ComboType.SelectedIndex > 0) //ГРУППА
             {
-                RecipesView.ItemsSource = db.Dishes.Where(x => x.ID_Group == ComboType.SelectedIndex).ToList();
+                RecipesView.ItemsSource = db.Dishes.Where(x => x.Dish_name.Contains(TBoxSearch.Text)).Where(x => x.ID_Group == ComboType.SelectedIndex).ToList();
+                return;
             }
-                
+
         }
 
         public class Ingreds
