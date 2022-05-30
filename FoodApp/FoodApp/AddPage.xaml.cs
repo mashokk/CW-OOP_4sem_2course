@@ -54,8 +54,6 @@ namespace FoodApp
 
         private void AddSaveButton_Click(object sender, RoutedEventArgs e)
         {
-            
-
             //инициализация пути к изображению
             string name = DishName.Text;
             string description = DescriptionText.Text;
@@ -73,39 +71,47 @@ namespace FoodApp
             {
 
 
-
-                if (!string.IsNullOrEmpty(this.DishName.Text.ToString()) && !string.IsNullOrEmpty(this.DescriptionText.Text.ToString()))
+                if (!string.IsNullOrEmpty(this.FileNameLabel.Text.ToString()))
                 {
-                    Photos newphoto = new Photos
+                    if (!string.IsNullOrEmpty(this.DishName.Text.ToString()) && !string.IsNullOrEmpty(this.DescriptionText.Text.ToString()))
                     {
-                        ID = idphoto + 1,
-                        URL_Photo = photo
-                    };
-                    db.Photos.Add(newphoto);
-                    db.SaveChanges();
+                        Photos newphoto = new Photos
+                        {
+                            ID = idphoto + 1,
+                            URL_Photo = photo
+                        };
+                        db.Photos.Add(newphoto);
+                        db.SaveChanges();
 
-                    var idph = db.Photos.Where(o => o.URL_Photo == photo).Select(y => y.ID).FirstOrDefault();
+                        var idph = db.Photos.Where(o => o.URL_Photo == photo).Select(y => y.ID).FirstOrDefault();
 
-                    Dishes newdish = new Dishes
+                        Dishes newdish = new Dishes
+                        {
+                            Dish_name = name,
+                            Description = description,
+                            ID_Group = idgr,
+                            ID_Photo = idph,
+                            ID = id + 1
+                        };
+                        db.Dishes.Add(newdish);
+                        db.SaveChanges();
+                        Dishes user = db.Dishes.FirstOrDefault((u) => u.Dish_name == name);
+
+                        System.Windows.MessageBox.Show("Рецепт успешно добавлен", $"Готово");
+                        NavigationService.Navigate(new EditPage());
+                    }
+
+                    else
                     {
-                        Dish_name = name,
-                        Description = description,
-                        ID_Group = idgr,
-                        ID_Photo = idph,
-                        ID = id + 1
-                    };
-                    db.Dishes.Add(newdish);
-                    db.SaveChanges();
-                    Dishes user = db.Dishes.FirstOrDefault((u) => u.Dish_name == name);
-
-                    System.Windows.MessageBox.Show("Рецепт успешно добавлен", $"Готово");
-                    NavigationService.Navigate(new EditPage());
+                        System.Windows.MessageBox.Show("Текстовые поля не должны быть пустыми!", $"Ошибка!");
+                    }
                 }
-
                 else
                 {
-                    System.Windows.MessageBox.Show("Текстовые поля не должны быть пустыми!", $"Ошибка!");
+                    lb1.Visibility = Visibility.Visible;
+                    tb1.Visibility = Visibility.Visible;
                 }
+                
 
 
                 
@@ -125,6 +131,18 @@ namespace FoodApp
         private void ComboGroups_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
+        }
+
+        private void NoPhoto_Click(object sender, RoutedEventArgs e)
+        {
+            string nophoto = db.Photos.Where(k => k.ID == 0).Select(y => y.URL_Photo).FirstOrDefault();
+            string selectedFileName = nophoto;
+            FileNameLabel.Text = selectedFileName;
+            BitmapImage bitmap = new BitmapImage();
+            bitmap.BeginInit();
+            bitmap.UriSource = new Uri(selectedFileName);
+            bitmap.EndInit();
+            ImageViewer1.Source = bitmap;
         }
     }
 }

@@ -43,13 +43,13 @@
     </Page.Resources>
 
     <Grid Background="#2E1201">
-        <StackPanel HorizontalAlignment="Left" Height="285" Margin="416,15,0,0" VerticalAlignment="Top" Width="300">
+        <StackPanel HorizontalAlignment="Left" Height="290" Margin="416,15,0,0" VerticalAlignment="Top" Width="300">
             <Image Name="ImageViewer1" Height="224" Width="300"/>
-            <StackPanel Orientation="Horizontal">
+            <StackPanel Orientation="Horizontal" Height="37">
                 <Label  Height="25" x:Name="Label1" Content="Выберите файл:"  Margin="5,0,0,0"/>
                 <Button Height="31" x:Name="BrowseButton" Width="81" Click="BrowseButton_Click" Content="Browse"  Margin="115,0,0,0" Cursor="Hand"/>
             </StackPanel>
-            <TextBlock Height="25" x:Name="FileNameLabel"/>
+            <TextBlock Height="30" x:Name="FileNameLabel"/>
         </StackPanel>
         <Button Content="На главную" HorizontalAlignment="Left" Margin="312,15,0,0" VerticalAlignment="Top" Width="70" Height="70" Click="Button_Click" Cursor="Hand"/>
         <Label Content="PotatoEat" HorizontalAlignment="Left" Margin="25,25,0,0" VerticalAlignment="Top" FontSize="36" FontFamily="Rockwell" Height="60"/>
@@ -61,8 +61,14 @@
         <TextBox Text="{Binding Dish_name}" x:Name="DishName" HorizontalAlignment="Left" Height="23" Margin="150,115,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="232"/>
         <ComboBox SelectedItem="{Binding ID_Group}" x:Name="ComboGroups" HorizontalAlignment="Left" Margin="150,159,0,0" VerticalAlignment="Top" Width="232"/>
 
-        <Button Content="Перейти далее" HorizontalAlignment="Left" Margin="416,305,0,0" VerticalAlignment="Top" Width="300" Height="88" Click="AddSaveButton_Click" Cursor="Hand"/>
+        <Button Content="Перейти далее" HorizontalAlignment="Left" Margin="416,339,0,0" VerticalAlignment="Top" Width="300" Height="54" Click="AddSaveButton_Click" Cursor="Hand"/>
         <TextBox x:Name="DescriptionText" AcceptsReturn="True" Text="{Binding Description}" HorizontalAlignment="Left" Height="172" Margin="25,221,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="357"/>
+        <Label x:Name="lb1" Visibility="Hidden" Content="Выберите изображение!" Foreground="#ad6a3c" HorizontalAlignment="Left" Margin="416,305,0,0" VerticalAlignment="Top" Width="151"/>
+        <TextBlock x:Name="tb1" Visibility="Hidden" HorizontalAlignment="Left" Margin="567,310,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="149">
+            <Hyperlink Click="NoPhoto_Click">
+                Поставить по умолчанию
+            </Hyperlink>
+        </TextBlock>
 
     </Grid>
 </Page>
