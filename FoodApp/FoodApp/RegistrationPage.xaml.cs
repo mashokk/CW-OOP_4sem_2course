@@ -25,6 +25,8 @@ namespace FoodApp
 
         private void RegistrButton_Click(object sender, RoutedEventArgs e)
         {
+            if (System.Text.RegularExpressions.Regex.IsMatch(tbusername.Text, @"^[A-zА-яЁё]+$"))
+            {
                 db = new DbRecipes();
                 string username = tbusername.Text;
                 string login = tblogin.Text;
@@ -47,8 +49,13 @@ namespace FoodApp
                 }
                 catch
                 {
-                    MessageBox.Show("Ошибка!", $"Неверный логин или пароль!");
+                    MessageBox.Show("Неверный логин или пароль!", $"Ошибка!");
                 }
+            }
+            else
+            {
+                NameLabel.Visibility = Visibility.Visible;
+            }
         }
 
         private void aPicture_MouseDown(object sender, MouseEventArgs e)

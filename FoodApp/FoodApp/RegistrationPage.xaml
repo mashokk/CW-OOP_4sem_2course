@@ -11,7 +11,7 @@
     <Page.Background>
         <ImageBrush ImageSource="C:\Study\2 курс\4 семестр\0.КУРСАЧ\FoodApp\FoodApp\Resources\bg.png"/>
     </Page.Background>
-    
+
     <Page.Resources>
         <Style TargetType="Button">
             <Setter Property="Height" Value="35" />
@@ -49,7 +49,10 @@
         </StackPanel>
         <StackPanel Margin="185,80,185.4,51.6">
             <Label Content="Добро пожаловать!" Margin="10" Width="120"/>
-            <Label Content="Ваше имя" Margin="0,0,-0.2,0"/>
+            <StackPanel Orientation="Horizontal" Height="37">
+                <Label Content="Ваше имя" Margin="5,0,0,0"/>
+                <Label x:Name="NameLabel" Visibility="Hidden" Content="Имя может содержать только буквы!" Margin="90,3,0,3.8" Width="219"/>
+            </StackPanel>
             <TextBox x:Name="tbusername" Margin="0,0,-0.2,0"/>
             <Label Content="Логин" Margin="0,0,-0.2,0"/>
             <TextBox x:Name="tblogin" Margin="0,0,-0.2,0"/>
