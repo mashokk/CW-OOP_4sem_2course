@@ -71,28 +71,32 @@ namespace FoodApp
         private void UpdateDishes()
         {
             db = new DbRecipes();
-            //int iddish = 1;
 
-            
 
+            //var iddish = db.Dish_Composition.Where(u => u.ID_Ingredient == ComboIngr.SelectedIndex).Select(i => i.ID_Dish).FirstOrDefault();
+            //delll.Text = iddish.ToString();
 
             RecipesView.ItemsSource = db.Dishes.Where(x => x.Dish_name.Contains(TBoxSearch.Text)).ToList(); //НАЗВАНИЕ
 
 
-            if (ComboIngr.SelectedIndex > 0) //ИНГРИДИЕНТЫ
-            {
-                var iddish = db.Dish_Composition.Where(u => u.ID_Ingredient == ComboIngr.SelectedIndex).Select(i => i.ID_Dish).FirstOrDefault();
-                delll.Text = iddish.ToString();
-                //var iddish = db.Dishes.Where(u => u.ID == idingr).FirstOrDefault();
-                RecipesView.ItemsSource = db.Dishes.Where(e => e.ID == iddish).ToList();
-                return;
-            }
 
             if (ComboType.SelectedIndex > 0) //ГРУППА
             {
                 RecipesView.ItemsSource = db.Dishes.Where(x => x.Dish_name.Contains(TBoxSearch.Text)).Where(x => x.ID_Group == ComboType.SelectedIndex).ToList();
                 return;
             }
+
+
+            /*var iddish = db.Dish_Composition.Where(u => u.ID_Ingredient == ComboIngr.SelectedIndex).Select(i => i.ID_Dish).FirstOrDefault();
+            delll.Text = iddish.ToString();
+
+            if (ComboIngr.SelectedIndex > 0) //ИНГРИДИЕНТЫ
+            {
+                
+                RecipesView.ItemsSource = db.Dishes.Where(e => e.ID == iddish).Where(x => x.Dish_name.Contains(TBoxSearch.Text)).Where(x => x.ID_Group == ComboType.SelectedIndex).ToList();
+                return;
+            }*/
+
 
         }
 

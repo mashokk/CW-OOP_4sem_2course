@@ -48,7 +48,7 @@
             <Label Content="Логин"/>
             <TextBox x:Name="tbLogin"/>
             <Label Content="Пароль"/>
-            <PasswordBox x:Name="tbPassword"/>
+            <PasswordBox PasswordChar="❀" x:Name="tbPassword"/>
             <Button Content="Авторизация" Cursor="Hand" Margin="15" Width="150" Click="LoginButton_Click"/>
             <TextBlock Width="110" HorizontalAlignment="Center">
                 <Hyperlink Click="Button_Click">

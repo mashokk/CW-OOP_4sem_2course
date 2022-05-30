@@ -39,6 +39,7 @@
         <Style TargetType="TextBlock">
             <Setter Property="Foreground" Value="White" />
         </Style>
+
     </Page.Resources>
 
     <Grid Background="#2E1201">
@@ -61,7 +62,7 @@
         <ComboBox SelectedItem="{Binding ID_Group}" x:Name="ComboGroups" HorizontalAlignment="Left" Margin="150,159,0,0" VerticalAlignment="Top" Width="232"/>
 
         <Button Content="Перейти далее" HorizontalAlignment="Left" Margin="416,305,0,0" VerticalAlignment="Top" Width="300" Height="88" Click="AddSaveButton_Click" Cursor="Hand"/>
-        <TextBox x:Name="DescriptionText" Text="{Binding Description}" HorizontalAlignment="Left" Height="172" Margin="25,221,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="357"/>
+        <TextBox x:Name="DescriptionText" AcceptsReturn="True" Text="{Binding Description}" HorizontalAlignment="Left" Height="172" Margin="25,221,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="357"/>
 
     </Grid>
 </Page>

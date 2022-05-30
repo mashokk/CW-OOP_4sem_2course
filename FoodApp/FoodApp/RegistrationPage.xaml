@@ -54,7 +54,7 @@
             <Label Content="Логин" Margin="0,0,-0.2,0"/>
             <TextBox x:Name="tblogin" Margin="0,0,-0.2,0"/>
             <Label Content="Пароль" Margin="0,0,-0.2,0"/>
-            <PasswordBox x:Name="tbpassword" Margin="0,0,-0.2,0"/>
+            <PasswordBox x:Name="tbpassword" PasswordChar="❀" Margin="0,0,-0.2,0"/>
             <Button Content="Регистрация" Margin="15" Width="150" Click="RegistrButton_Click" Cursor="Hand" />
         </StackPanel>
     </Grid>

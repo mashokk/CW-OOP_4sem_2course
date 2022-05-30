@@ -40,6 +40,7 @@
         <Style TargetType="TextBlock">
             <Setter Property="Foreground" Value="White" />
         </Style>
+        
     </Page.Resources>
 
     <Grid  Background="#2E1201">
@@ -50,7 +51,7 @@
         <Image Source="{Binding Photos.URL_Photo}" HorizontalAlignment="Left" Height="246" Margin="1.8,95,0,0" VerticalAlignment="Top" Width="287" Grid.Column="1"/>
         <TextBlock Text="{Binding Dish_name}" x:Name="DName" HorizontalAlignment="Left" FontSize="32"  Margin="1.8,34,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="60" Width="599" FontFamily="Rockwell" Grid.Column="1"/>
         <TextBlock Text="{Binding Groups.Group_name}" HorizontalAlignment="Left" Margin="1.8,346,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="210" Grid.Column="1" Height="16"/>
-        <TextBlock Text="{Binding Description}" Grid.Column="1" HorizontalAlignment="Left" Margin="313.8,94,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="316" Width="369"/>
+        <TextBox Text="{Binding Description}" Foreground="White" BorderThickness="0" IsReadOnly="True" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Auto" Grid.Column="1" HorizontalAlignment="Left" Margin="313.8,94,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="316" Width="369" Background="#2E1201"/>
         <Button Content="На главную" Click="Button_Click" Grid.Column="1" HorizontalAlignment="Left" Margin="612.8,13,0,0" VerticalAlignment="Top" Width="70" Height="70"/>
 
     </Grid>

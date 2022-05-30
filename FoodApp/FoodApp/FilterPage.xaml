@@ -47,7 +47,7 @@
         <Style TargetType="ListViewItem">
             <EventSetter Event="MouseDoubleClick" Handler="ListViewItem_MouseDoubleClick"/>
         </Style>
-        
+
 
     </Page.Resources>
 

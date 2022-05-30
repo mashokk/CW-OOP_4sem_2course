@@ -16,11 +16,12 @@ namespace FoodApp
         DbRecipes db = new DbRecipes(); //Для работы с базой
         private Dishes _currentDish = new Dishes();
 
-
         public AddPage()
         {
             InitializeComponent();
             DataContext = _currentDish;
+
+            DishName.MaxLength = 35; //ограничение на кол-во символов
 
             db = new DbRecipes();
             List<Groups> gr = db.Groups.ToList();
@@ -60,9 +61,8 @@ namespace FoodApp
             string description = DescriptionText.Text;
             string group = ComboGroups.Text;
             string photo = FileNameLabel.Text;
-            var idgr = db.Groups.Where(n => n.Group_name == group).Select(x => x.ID).FirstOrDefault();
-            var idph = db.Photos.Where(o => o.URL_Photo == photo).Select(y => y.ID).FirstOrDefault();
-
+            int idgr = db.Groups.Where(n => n.Group_name == group).Select(x => x.ID).FirstOrDefault();
+            /*var idph = db.Photos.Where(o => o.URL_Photo == photo).Select(y => y.ID).FirstOrDefault();*/
 
             int id = db.Dishes.Max(m => m.ID);
             int idphoto = db.Photos.Max(k => k.ID);
@@ -71,30 +71,44 @@ namespace FoodApp
 
             try
             {
-                Photos newphoto = new Photos
+
+
+
+                if (!string.IsNullOrEmpty(this.DishName.Text.ToString()) && !string.IsNullOrEmpty(this.DescriptionText.Text.ToString()))
                 {
-                    ID = idphoto + 1,
-                    URL_Photo = photo
-                };
-                db.Photos.Add(newphoto);
-                db.SaveChanges();
+                    Photos newphoto = new Photos
+                    {
+                        ID = idphoto + 1,
+                        URL_Photo = photo
+                    };
+                    db.Photos.Add(newphoto);
+                    db.SaveChanges();
 
+                    var idph = db.Photos.Where(o => o.URL_Photo == photo).Select(y => y.ID).FirstOrDefault();
 
+                    Dishes newdish = new Dishes
+                    {
+                        Dish_name = name,
+                        Description = description,
+                        ID_Group = idgr,
+                        ID_Photo = idph,
+                        ID = id + 1
+                    };
+                    db.Dishes.Add(newdish);
+                    db.SaveChanges();
+                    Dishes user = db.Dishes.FirstOrDefault((u) => u.Dish_name == name);
 
-                Dishes newdish = new Dishes
+                    System.Windows.MessageBox.Show("Рецепт успешно добавлен", $"Готово");
+                    NavigationService.Navigate(new EditPage());
+                }
+
+                else
                 {
-                    Dish_name = name,
-                    Description = description,
-                    ID_Group = idgr,
-                    ID_Photo = idph,
-                    ID = id + 1
-                };
-                db.Dishes.Add(newdish);
-                db.SaveChanges();
-                Dishes user = db.Dishes.FirstOrDefault((u) => u.Dish_name == name);
-                System.Windows.MessageBox.Show("Рецепт успешно добавлен", $"Готово");
+                    System.Windows.MessageBox.Show("Текстовые поля не должны быть пустыми!", $"Ошибка!");
+                }
 
-                NavigationService.Navigate(new EditPage());
+
+                
             }
             catch (Exception ex)
             {
