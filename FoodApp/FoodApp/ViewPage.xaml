@@ -40,7 +40,7 @@
         <Style TargetType="TextBlock">
             <Setter Property="Foreground" Value="White" />
         </Style>
-        
+
     </Page.Resources>
 
     <Grid  Background="#2E1201">
@@ -48,11 +48,20 @@
             <ColumnDefinition Width="23*"/>
             <ColumnDefinition Width="727*"/>
         </Grid.ColumnDefinitions>
-        <Image Source="{Binding Photos.URL_Photo}" HorizontalAlignment="Left" Height="246" Margin="1.8,95,0,0" VerticalAlignment="Top" Width="287" Grid.Column="1"/>
+        <Image Source="{Binding Photos.URL_Photo}" HorizontalAlignment="Left" Height="231" Margin="1.8,95,0,0" VerticalAlignment="Top" Width="287" Grid.Column="1"/>
         <TextBox Text="{Binding Dish_name}" x:Name="DName" Foreground="White" BorderThickness="0" IsReadOnly="True" HorizontalAlignment="Left" FontSize="32"  Margin="1.8,34,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="60" Width="599" FontFamily="Rockwell" Grid.Column="1" Background="#2E1201"/>
-        <TextBlock Text="{Binding Groups.Group_name}" HorizontalAlignment="Left" Margin="1.8,346,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="210" Grid.Column="1" Height="16"/>
+        <TextBlock Text="{Binding Groups.Group_name}" HorizontalAlignment="Left" Margin="1.8,339,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="169" Grid.Column="1" Height="16"/>
         <TextBox Text="{Binding Description}" Foreground="White" BorderThickness="0" IsReadOnly="True" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Auto" Grid.Column="1" HorizontalAlignment="Left" Margin="313.8,94,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="316" Width="369" Background="#2E1201"/>
-        <Button Content="На главную" Click="Button_Click" Grid.Column="1" HorizontalAlignment="Left" Margin="612.8,13,0,0" VerticalAlignment="Top" Width="70" Height="70"/>
+        <Button Content="На главную" Cursor="Hand" Click="Button_Click" Grid.Column="1" HorizontalAlignment="Left" Margin="612.8,13,0,0" VerticalAlignment="Top" Width="70" Height="70"/>
+
+        <TextBlock Name="tbTime" Visibility="Hidden" FontSize="30"  Text="00:00:00" Grid.Column="1" HorizontalAlignment="Left" Margin="171.8,326,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <Button Cursor="Hand" Content="Go" Grid.Column="1" HorizontalAlignment="Left" Margin="232.8,372,0,0" VerticalAlignment="Top" Width="50" Click="TimerGo_Click"/>
+        <Button Cursor="Hand" Content="Reset" Grid.Column="1" HorizontalAlignment="Left" Margin="172.8,372,0,0" VerticalAlignment="Top" Width="50" Click="TimerReset_Click"/>
+        <TextBox x:Name="sec" Visibility="Visible" Foreground="White" Background="#2E1201" BorderThickness="0" Grid.Column="1" FontSize="30" Text="00" HorizontalAlignment="Left" Height="40" Margin="248.8,326,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="40"/>
+        <TextBox x:Name="hours" Visibility="Visible" Foreground="White" Background="#2E1201" BorderThickness="0" Grid.Column="1" FontSize="30" Text="00" HorizontalAlignment="Left" Height="40" Margin="169.8,326,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="40"/>
+        <TextBox x:Name="min" Visibility="Visible" Foreground="White" Background="#2E1201" BorderThickness="0" Grid.Column="1" FontSize="30" Text="00" HorizontalAlignment="Left" Height="40" Margin="208.8,326,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="40"/>
+        <Label x:Name="l1" Content=":" Visibility="Visible" FontSize="30" Grid.Column="1" HorizontalAlignment="Left" Margin="198.8,319,0,0" VerticalAlignment="Top" Height="58"/>
+        <Label x:Name="l2" Content=":" Visibility="Visible" FontSize="30" Grid.Column="1" HorizontalAlignment="Left" Margin="239.8,319,0,0" VerticalAlignment="Top" Height="58"/>
 
     </Grid>
 </Page>
