@@ -16,9 +16,6 @@ using System.Windows.Threading;
 
 namespace FoodApp
 {
-    /// <summary>
-    /// Логика взаимодействия для LoadingPage.xaml
-    /// </summary>
     public partial class LoadingPage : Page
     {
         DispatcherTimer _timer;

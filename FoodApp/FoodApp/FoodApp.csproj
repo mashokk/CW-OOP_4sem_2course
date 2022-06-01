@@ -206,7 +206,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\icon_potato.png" />
-    <Resource Include="icon.ico" />
     <Resource Include="icon_potato.ico" />
     <Content Include="Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

@@ -80,23 +80,24 @@ namespace FoodApp
 
 
 
-            if (ComboType.SelectedIndex > 0) //ГРУППА
+            //ГРУППА
+            if (ComboType.SelectedIndex > 0) 
             {
                 RecipesView.ItemsSource = db.Dishes.Where(x => x.Dish_name.Contains(TBoxSearch.Text)).Where(x => x.ID_Group == ComboType.SelectedIndex).ToList();
                 return;
             }
 
+            //ИНГРИДИЕНТЫ
+            
 
-            /*var iddish = db.Dish_Composition.Where(u => u.ID_Ingredient == ComboIngr.SelectedIndex).Select(i => i.ID_Dish).FirstOrDefault();
-            delll.Text = iddish.ToString();
 
-            if (ComboIngr.SelectedIndex > 0) //ИНГРИДИЕНТЫ
+            if (ComboIngr.SelectedIndex > 0)
             {
-                
-                RecipesView.ItemsSource = db.Dishes.Where(e => e.ID == iddish).Where(x => x.Dish_name.Contains(TBoxSearch.Text)).Where(x => x.ID_Group == ComboType.SelectedIndex).ToList();
-                return;
-            }*/
 
+                var iddish = db.Dish_Composition.Where(u => u.ID_Ingredient == ComboIngr.SelectedIndex).Select(i => i.ID_Dish).ToList(); //список с айди блюд где айди ингридиента = айди выбраного ингридиента
+                RecipesView.ItemsSource = db.Dishes.Where(e => iddish.Contains(e.ID)).ToList();
+                
+            }
 
         }
 
@@ -129,6 +130,11 @@ namespace FoodApp
             UpdateDishes();
         }
 
+        private void ComboIngr_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            UpdateDishes();
+        }
+
         private void Exit_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new LoginPage());
@@ -157,9 +163,5 @@ namespace FoodApp
             TBoxSearch.Text = dish;
         }
 
-        private void ComboIngr_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
     }
 }
