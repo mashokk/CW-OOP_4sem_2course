@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -60,6 +61,7 @@ namespace FoodApp
                     if (_time == TimeSpan.Zero)
                     {
                         _timer.Stop();
+
                         MessageBox.Show("Время вышло!");
                         sec.Visibility = Visibility.Visible;
                         min.Visibility = Visibility.Visible;

@@ -50,7 +50,7 @@ namespace FoodApp
                 }
                 else
                 {
-                    NavigationService.Navigate(new FilterPage());
+                    NavigationService.Navigate(new LoadingPage());
                 }
                 
             }
