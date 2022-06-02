@@ -68,27 +68,26 @@ namespace FoodApp
         {
             db = new DbRecipes();
 
-            //НАЗВАНИЕ
+            
             RecipesView.ItemsSource = db.Dishes.Where(x => x.Dish_name.Contains(TBoxSearch.Text)).ToList();
+            
 
-            //ГРУППА + НАЗВАНИЕ
             if (ComboType.SelectedIndex > 0) 
             {
                 RecipesView.ItemsSource = db.Dishes.Where(x => x.Dish_name.Contains(TBoxSearch.Text)).Where(x => x.ID_Group == ComboType.SelectedIndex).ToList();
                 return;
             }
 
-            //ИНГРИДИЕНТЫ + НАЗВАНИЕ
             if (ComboIngr.SelectedIndex > 0)
             {
-                var iddish = db.Dish_Composition.Where(u => u.ID_Ingredient == ComboIngr.SelectedIndex).Select(i => i.ID_Dish).ToList(); //список с айди блюд где айди ингридиента = айди выбраного ингридиента
+                var iddish = db.Dish_Composition.Where(u => u.ID_Ingredient == ComboIngr.SelectedIndex).Select(i => i.ID_Dish).ToList();                                    //список с айди блюд где айди ингридиента = айди выбраного ингридиента
                 RecipesView.ItemsSource = db.Dishes.Where(x => x.Dish_name.Contains(TBoxSearch.Text)).Where(e => iddish.Contains(e.ID)).ToList();
                 return;
             }
 
             if (ComboIngr.SelectedIndex > 0 && ComboType.SelectedIndex > 0)
             {
-                var iddish = db.Dish_Composition.Where(u => u.ID_Ingredient == ComboIngr.SelectedIndex).Select(i => i.ID_Dish).ToList(); //список с айди блюд где айди ингридиента = айди выбраного ингридиента
+                var iddish = db.Dish_Composition.Where(u => u.ID_Ingredient == ComboIngr.SelectedIndex).Select(i => i.ID_Dish).ToList();                                    //список с айди блюд где айди ингридиента = айди выбраного ингридиента
                 RecipesView.ItemsSource = db.Dishes.Where(x => x.ID_Group == ComboType.SelectedIndex).Where(e => iddish.Contains(e.ID)).ToList();
                 return;
             }

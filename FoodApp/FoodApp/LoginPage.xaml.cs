@@ -29,15 +29,10 @@ namespace FoodApp
 
             string login = tbLogin.Text;
             string password = tbPassword.Password;
-
             try
             {
-
                 Users user = db.Users.Where((u) => u.Login == login && u.Password == password).Single();
-                //MessageBox.Show("Успешная авторизация!", $"Привет, {user.Username}!");
-
                 isLogin = true;
-                
 
                 if (user.ID == 1)
                 {
@@ -51,7 +46,6 @@ namespace FoodApp
                 {
                     NavigationService.Navigate(new LoadingPage());
                 }
-                
             }
             catch
             {

@@ -24,10 +24,8 @@ namespace FoodApp
         public ForAdminPage()
         {
             InitializeComponent();
-            
-            db = new DbRecipes();
-            db.Dishes.Load();
             RefreshTable(currentTableType);
+            db = new DbRecipes();
         }
         private void RefreshTable(TableType tt) //Обновляет таблицу 
         {
@@ -41,12 +39,25 @@ namespace FoodApp
                     blIngredient.AddingNew += (sender, e) => e.NewObject = new Ingredients() { ID = id1 + 1, Ingredient_name = "<новый>" }; //Задаем шаблон для новой записи
                     this.ingredientTable.ItemsSource = blIngredient; //Задаем BindingList<> как источник данных
                     break;
-
+                case TableType.Compos2TT:
+                    db.Dish_Composition.Load();
+                    int id2 = db.Dish_Composition.Max(m => m.ID);
+                    BindingList<Dish_Composition> blComposition = db.Dish_Composition.Local.ToBindingList();
+                    blComposition.AddingNew += (sender, e) => e.NewObject = new Dish_Composition() { ID = id2 + 1, ID_Dish = 0, ID_Ingredient = 0 };
+                    this.compositionTable.ItemsSource = blComposition;
+                    this.colDish.ItemsSource = db.Dishes.ToArray();
+                    this.colIngred.ItemsSource = db.Ingredients.ToArray();
+                    break;
+                case TableType.DishesTT:
+                    db.Dishes.Load();
+                    BindingList<Dishes> blDishes = db.Dishes.Local.ToBindingList(); //Получаем коллекцию BindingList
+                    this.dishesTable.ItemsSource = blDishes; //Задаем BindingList<> как источник данных
+                    break;
                 case TableType.UsersTT:
                     db.Users.Load();
-                    int id2 = db.Users.Max(m => m.ID);
+                    int id4 = db.Users.Max(m => m.ID);
                     BindingList<Users> blUsers = db.Users.Local.ToBindingList();
-                    blUsers.AddingNew += (sender, e) => e.NewObject = new Users() { ID = id2 + 1, Username = "<новый>", Login = "<new>", Password = "<new>" };
+                    blUsers.AddingNew += (sender, e) => e.NewObject = new Users() { ID = id4 + 1, Username = "<новый>", Login = "<new>", Password = "<new>" };
                     this.usersTable.ItemsSource = blUsers;
                     break;
             }
@@ -62,6 +73,12 @@ namespace FoodApp
                 case TableType.IngredientsTT:
                     currTable = ingredientTable;
                     break;
+                case TableType.DishesTT:
+                    currTable = dishesTable;
+                    break;
+                case TableType.Compos2TT:
+                    currTable = compositionTable;
+                    break;
                 case TableType.UsersTT:
                     currTable = usersTable;
                     break;
@@ -71,14 +88,7 @@ namespace FoodApp
             RefreshTable(tt); //Обновляем таблицу
             currTable.SelectedIndex = si; //Выделяем строку
         }
-        private void Page_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
-        {
-            if (Visibility == Visibility.Visible)
-            {
-                DbRecipes.GetContext().ChangeTracker.Entries().ToList().ForEach(p => p.Reload());
-                RecipesView.ItemsSource = DbRecipes.GetContext().Dishes.ToList();
-            }
-        }
+        
         //Удаляет выделенную запись
         private void DeleteRecord(TableType tt)
         {
@@ -92,9 +102,24 @@ namespace FoodApp
                             "Ошибка", MessageBoxButton.OK, MessageBoxImage.Exclamation);
                     break;
 
+                case TableType.DishesTT:
+                    if (dishesTable.SelectedItem is Dishes b && b.Dish_Composition.Count == 0)
+                    {
+                        db.Dishes.Local.Remove(b);
+                    }
+                    else
+                        MessageBox.Show("Удаление невозможно! Сперва удалите все связи в связеющей таблице.",
+                            "Ошибка", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                    break;
+
+                case TableType.Compos2TT:
+                    if (compositionTable.SelectedItem is Dish_Composition d)
+                        db.Dish_Composition.Local.Remove(d);
+                    break;
+
                 case TableType.UsersTT:
-                    if (usersTable.SelectedItem is Users d)
-                        db.Users.Local.Remove(d);
+                    if (usersTable.SelectedItem is Users g)
+                        db.Users.Local.Remove(g);
                     break;
             }
         }
@@ -103,9 +128,14 @@ namespace FoodApp
             if (sender is TabItem ti)
             {
                 TableType old = currentTableType;
+
                 string header = ti.Header.ToString();
                 if (header == "Ингридиенты")
                     currentTableType = TableType.IngredientsTT;
+                else if (header == "Удаление блюд")
+                    currentTableType = TableType.DishesTT;
+                else if (header == "Связующая таблица")
+                    currentTableType = TableType.Compos2TT;
                 else if (header == "Пользователи")
                     currentTableType = TableType.UsersTT;
 
@@ -125,19 +155,12 @@ namespace FoodApp
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new FilterPage());
+            NavigationService.Navigate(new LoadingPage());
         }
-
-        private void DishDelete_Click(object sender, RoutedEventArgs e)
+        private void SheetTabs_Loaded(object sender, RoutedEventArgs e)
         {
-                Dishes dish = db.Dishes.Where(o => o.ID == RecipesView.SelectedIndex).FirstOrDefault();
-                foreach (Dish_Composition item in RecipesView.Items)
-                {
-                    Dish_Composition items = db.Dish_Composition.Where(y => y.ID_Dish == RecipesView.SelectedIndex).FirstOrDefault();
-                    db.Dish_Composition.Remove(items);
-                }
-                db.Dishes.Remove(dish);
-                db.SaveChanges();
+            var tabControl = (TabControl)sender;
+            tabControl.SelectedIndex = 0;
         }
     }
 }

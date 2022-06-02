@@ -45,7 +45,7 @@ namespace FoodApp
                     db.SaveChanges();
                     Users user = db.Users.FirstOrDefault((u) => u.Login == login);
                     MessageBox.Show("Успешная регистрация!", $"Добро пожаловать, {user.Username}!");
-                    NavigationService.Navigate(new FilterPage());
+                    NavigationService.Navigate(new LoginPage());
                 }
                 catch
                 {

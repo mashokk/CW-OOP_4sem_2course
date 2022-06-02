@@ -66,11 +66,8 @@ namespace FoodApp
             int idphoto = db.Photos.Max(k => k.ID);
 
             var iddsh = db.Dish_Composition.Where(w => w.ID_Dish == id).Select(z => z.ID).FirstOrDefault();
-
             try
             {
-
-
                 if (!string.IsNullOrEmpty(this.FileNameLabel.Text.ToString()))
                 {
                     if (!string.IsNullOrEmpty(this.DishName.Text.ToString()) && !string.IsNullOrEmpty(this.DescriptionText.Text.ToString()))
@@ -100,7 +97,6 @@ namespace FoodApp
                         System.Windows.MessageBox.Show("Рецепт успешно добавлен", $"Готово");
                         NavigationService.Navigate(new EditPage());
                     }
-
                     else
                     {
                         System.Windows.MessageBox.Show("Текстовые поля не должны быть пустыми!", $"Ошибка!");
@@ -111,10 +107,6 @@ namespace FoodApp
                     lb1.Visibility = Visibility.Visible;
                     tb1.Visibility = Visibility.Visible;
                 }
-                
-
-
-                
             }
             catch (Exception ex)
             {

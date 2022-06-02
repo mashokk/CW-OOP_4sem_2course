@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:FoodApp"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="750"
-      Title="ForAdminPage" IsVisibleChanged="Page_IsVisibleChanged">
+      Title="ForAdminPage">
     <Page.Resources>
         <Style TargetType="Button">
             <Setter Property="Height" Value="35" />
@@ -98,47 +98,54 @@
     </Page.Resources>
 
     <Grid Background="#2E1201">
-        <TabControl>
-
-
-
+        <TabControl Loaded="SheetTabs_Loaded">
             <TabItem Header="Удаление блюд" GotFocus="TabItem_GotFocus">
                 <DockPanel>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,10,10.8,10" Height="40" DockPanel.Dock="Top" Width="708">
-                        <Button Content="На главную" Margin="0, 0, 470, 0" Width="140" Click="BackButton_Click"/>
-                        <Button Content="Удалить" Margin="3,2,3,0" Width="70" Click="DishDelete_Click" VerticalAlignment="Top"/>
+                        <Button Content="На главную" Cursor="Hand" Margin="0, 0, 310, 0" Width="140" Click="BackButton_Click"/>
+                        <Button Content="Сохранить изменения" Cursor="Hand" Margin="3 0" Width="150" Click="SaveChangesButton_Click"/>
+                        <Button Content="Удалить" Cursor="Hand" Margin="3 0" Width="70" Click="DeleteButton_Click"/>
                     </StackPanel>
 
-                    <ListView x:Name="RecipesView" Margin="10 0 10 10" VirtualizingPanel.ScrollUnit="Pixel" >
-                        <ListView.ItemTemplate>
-                            <DataTemplate>
-                                <Grid Width="300">
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="20"></RowDefinition>
-                                        <RowDefinition Height="100"></RowDefinition>
-                                        <RowDefinition Height="auto"></RowDefinition>
-                                        <RowDefinition Height="auto"></RowDefinition>
-                                        <RowDefinition Height="auto"></RowDefinition>
-                                    </Grid.RowDefinitions>
-                                    <Image Source="{Binding Photos.URL_Photo}" HorizontalAlignment="Left" Width="200" Grid.Row="1" Stretch="Uniform" Margin="5"></Image>
-                                    <TextBlock x:Name="NameDish" Text="{Binding Dish_name}" Grid.Row="0" FontWeight="Bold" FontSize="16"></TextBlock>
-                                    <TextBlock Text="{Binding Groups.Group_name}" Grid.Row="2"></TextBlock>
-                                    <TextBlock Text="{Binding Description}" Grid.Row="4" TextTrimming="WordEllipsis"></TextBlock>
-                                </Grid>
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>
+                    <DataGrid x:Name="dishesTable" CanUserResizeRows="False" AutoGenerateColumns="False" Margin="10 0 10 10">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Название блюда" Width="*" Binding="{Binding Path=Dish_name}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
                 </DockPanel>
             </TabItem>
 
-
-
-            <TabItem Header="Ингридиенты" GotFocus="TabItem_GotFocus">
+            <TabItem Header="Связующая таблица" GotFocus="TabItem_GotFocus">
                 <DockPanel>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,10,10.8,10" Height="40" DockPanel.Dock="Top" Width="708">
-                        <Button Content="На главную" Margin="0, 0, 310, 0" Width="140" Click="BackButton_Click"/>
-                        <Button Content="Сохранить изменения" Margin="3 0" Width="150" Click="SaveChangesButton_Click"/>
-                        <Button Content="Удалить" Margin="3 0" Width="70" Click="DeleteButton_Click"/>
+                        <Button Content="На главную" Cursor="Hand" Margin="0, 0, 310, 0" Width="140" Click="BackButton_Click"/>
+                        <Button Content="Сохранить изменения" Cursor="Hand" Margin="3 0" Width="150" Click="SaveChangesButton_Click"/>
+                        <Button Content="Удалить" Cursor="Hand" Margin="3 0" Width="70" Click="DeleteButton_Click"/>
+                    </StackPanel>
+
+                    <DataGrid x:Name="compositionTable" CanUserResizeRows="False" AutoGenerateColumns="False" Margin="10 0 10 10" Background="#2E1201">
+                        <DataGrid.Columns>
+                            <DataGridComboBoxColumn x:Name="colDish" Header="   Блюдо"
+                                DisplayMemberPath="Dish_name"
+                                SelectedValuePath="ID" 
+                                SelectedValueBinding="{Binding Path=ID_Dish}" 
+                                Width="*"/>
+                            <DataGridComboBoxColumn x:Name="colIngred" Header="   Ингридиент"
+                                DisplayMemberPath="Ingredient_name"
+                                SelectedValuePath="ID" 
+                                SelectedValueBinding="{Binding Path=ID_Ingredient}" 
+                                Width="*"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </DockPanel>
+            </TabItem>
+
+                <TabItem Header="Ингридиенты" GotFocus="TabItem_GotFocus">
+                <DockPanel>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,10,10.8,10" Height="40" DockPanel.Dock="Top" Width="708">
+                        <Button Content="На главную" Cursor="Hand" Margin="0, 0, 310, 0" Width="140" Click="BackButton_Click"/>
+                        <Button Content="Сохранить изменения" Cursor="Hand" Margin="3 0" Width="150" Click="SaveChangesButton_Click"/>
+                        <Button Content="Удалить" Cursor="Hand" Margin="3 0" Width="70" Click="DeleteButton_Click"/>
                     </StackPanel>
 
                     <DataGrid x:Name="ingredientTable" CanUserResizeRows="False" AutoGenerateColumns="False" Margin="10 0 10 10">
@@ -153,9 +160,9 @@
             <TabItem Header="Пользователи" GotFocus="TabItem_GotFocus">
                 <DockPanel>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,10,10.8,10" Height="40" DockPanel.Dock="Top" Width="708">
-                        <Button Content="На главную" Margin="0, 0, 310, 0" Width="140" Click="BackButton_Click"/>
-                        <Button Content="Сохранить изменения" Margin="3 0" Width="150" Click="SaveChangesButton_Click"/>
-                        <Button Content="Удалить" Margin="3 0" Width="70" Click="DeleteButton_Click"/>
+                        <Button Content="На главную" Cursor="Hand" Margin="0, 0, 310, 0" Width="140" Click="BackButton_Click"/>
+                        <Button Content="Сохранить изменения" Cursor="Hand" Margin="3 0" Width="150" Click="SaveChangesButton_Click"/>
+                        <Button Content="Удалить" Cursor="Hand" Margin="3 0" Width="70" Click="DeleteButton_Click"/>
                     </StackPanel>
 
                     <DataGrid x:Name="usersTable" CanUserResizeRows="False" AutoGenerateColumns="False" Margin="10 0 10 10">

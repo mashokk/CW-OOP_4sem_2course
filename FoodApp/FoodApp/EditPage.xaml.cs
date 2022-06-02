@@ -20,7 +20,7 @@ namespace FoodApp
 {
     public enum TableType //Перечисление, где указывается тип таблицы
     {
-        CompositionTT, IngredientsTT, UsersTT
+        CompositionTT, IngredientsTT, UsersTT, DishesTT, Compos2TT
     }
     public partial class EditPage : Page
     {

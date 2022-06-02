@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="FoodApp.AddPage" Collapsed="true" BaseTypeListCollapsed="true">
+  <Class Name="FoodApp.AddPage" BaseTypeListCollapsed="true">
     <Position X="3" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAQAAAAAAAAAEEAAAAAAAAAAIAAAABAAAA=</HashCode>
+      <HashCode>AAAAAAAIAAAQAAAAAAAAAEEAAAAAAEAAAIAAAABAAAA=</HashCode>
       <FileName>AddPage.xaml.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" Collapsed="true" />
+    <Lollipop Position="0.192" Collapsed="true" />
   </Class>
   <Class Name="FoodApp.App" Collapsed="true">
     <Position X="4.75" Y="0.5" Width="1.5" />
@@ -15,126 +15,118 @@
       <FileName>App.xaml.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="FoodApp.EditPage" Collapsed="true" BaseTypeListCollapsed="true">
+  <Class Name="FoodApp.EditPage" BaseTypeListCollapsed="true">
     <Position X="4.75" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>gAAAAAAAAQAQAAAAAQAAAAAEAAAAAAABAAIAACQQAAA=</HashCode>
+      <HashCode>gAAAAAAAAQAQAAAAAQAAAAAEAAAAAAABAAIAACAAAAA=</HashCode>
       <FileName>EditPage.xaml.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="FoodApp.FilterPage" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="6.5" Y="1.5" Width="1.5" />
+  <Class Name="FoodApp.FilterPage" BaseTypeListCollapsed="true">
+    <Position X="6.5" Y="4.25" Width="1.5" />
+    <NestedTypes>
+      <Class Name="FoodApp.FilterPage.Ingreds" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>FilterPage.xaml.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAQAAAAQAAEAAAIAIAAAABAABAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAQAAAAAAAEBAAIQIAQAABAABgAAAAAAAA=</HashCode>
       <FileName>FilterPage.xaml.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="FoodApp.LoginPage" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="4.75" Y="2.5" Width="1.5" />
+  <Class Name="FoodApp.LoginPage" BaseTypeListCollapsed="true">
+    <Position X="4.75" Y="4.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>BAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAACAAAAAAAA=</HashCode>
       <FileName>LoginPage.xaml.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="FoodApp.MainWindow" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="6.5" Y="2.5" Width="1.5" />
+  <Class Name="FoodApp.MainWindow" BaseTypeListCollapsed="true">
+    <Position X="6.5" Y="8" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>MainWindow.xaml.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="FoodApp.DbRecipes" Collapsed="true">
+  <Class Name="FoodApp.DbRecipes">
     <Position X="6.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAGAAAAAABCAAAAQAAKAAEAAAAAAAACAAAAAAAAA=</HashCode>
       <FileName>Model1.Context.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="FoodApp.Dish_Composition" Collapsed="true">
+  <Class Name="FoodApp.Dish_Composition">
     <Position X="8.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAiAAAAAQAACAAAAAAAAABAAAAAAAAAAA=</HashCode>
       <FileName>Dish_Composition.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="FoodApp.Dishes" Collapsed="true">
-    <Position X="3" Y="1.5" Width="1.5" />
+  <Class Name="FoodApp.Dishes">
+    <Position X="3" Y="3.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAEAAAAAkgCAAAAAABIAAAAAAAAgAAAAAAAAAAAA=</HashCode>
       <FileName>Dishes.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="FoodApp.Groups" Collapsed="true">
-    <Position X="8.25" Y="1.5" Width="1.5" />
+  <Class Name="FoodApp.Groups">
+    <Position X="8.25" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAgAAAAAQAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
       <FileName>Groups.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="FoodApp.Ingredients" Collapsed="true">
-    <Position X="3" Y="2.5" Width="1.5" />
+  <Class Name="FoodApp.Ingredients">
+    <Position X="3" Y="6.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAgAAAAAAAAIAAAAAAAAAAAAAAgAAAAAA=</HashCode>
       <FileName>Ingredients.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="FoodApp.Photos" Collapsed="true">
-    <Position X="8.25" Y="2.5" Width="1.5" />
+  <Class Name="FoodApp.Photos">
+    <Position X="8.25" Y="4.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAgACAAAQAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Photos.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="FoodApp.Users" Collapsed="true">
-    <Position X="8.25" Y="3.5" Width="1.5" />
+  <Class Name="FoodApp.Users">
+    <Position X="8.25" Y="7" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAgAAAAQAAAAAAAAAAAAACAAAQAAAAAAA=</HashCode>
       <FileName>Users.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="FoodApp.RegistrationPage" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="3" Y="3.5" Width="1.5" />
+  <Class Name="FoodApp.RegistrationPage" BaseTypeListCollapsed="true">
+    <Position X="3" Y="8.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAQAAAAAAAAAAAAAIAAAAAAAAABAAAAAAA=</HashCode>
       <FileName>RegistrationPage.xaml.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="FoodApp.ViewModel" Collapsed="true">
-    <Position X="0.5" Y="1.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAgACAAAAAAAAAAAABAAAAAAAAAAAQAAAAg=</HashCode>
-      <FileName>ViewModel.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="FoodApp.ViewModelBase" Collapsed="true">
-    <Position X="0.5" Y="0.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAIAAAAAAAAAAgAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>ViewModelBase.cs</FileName>
-    </TypeIdentifier>
-    <Lollipop Position="0.2" />
-  </Class>
-  <Class Name="FoodApp.Properties.Resources" Collapsed="true">
-    <Position X="4.75" Y="3.5" Width="1.5" />
+  <Class Name="FoodApp.Properties.Resources">
+    <Position X="4.75" Y="7" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
     </TypeIdentifier>
   </Class>
-  <Class Name="FoodApp.Properties.Settings" Collapsed="true">
-    <Position X="6.5" Y="3.5" Width="1.5" />
+  <Class Name="FoodApp.Properties.Settings">
+    <Position X="6.5" Y="9.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
     </TypeIdentifier>
   </Class>
   <Enum Name="FoodApp.TableType" Collapsed="true">
-    <Position X="3" Y="4.75" Width="1.5" />
+    <Position X="1" Y="6.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAIAAAAAgIQAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAIAAAAAgAAAAAAAAAAAAAA=</HashCode>
       <FileName>EditPage.xaml.cs</FileName>
     </TypeIdentifier>
   </Enum>
