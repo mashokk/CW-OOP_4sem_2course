@@ -56,41 +56,9 @@
     </Page.Resources>
 
     <Grid Background="#2E1201">
-
-        <!--<TabControl>-->
-        <!--<TabItem Header="Блюда" GotFocus="TabItem_GotFocus">
-                <DockPanel>
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="10" Height="25" DockPanel.Dock="Top">
-                        <Button Content="На главную" Margin="175, 0" Width="140" Click="BackButton_Click"/>
-                        <Button Content="Сохранить изменения" Margin="3 0" Width="150" Click="SaveChangesButton_Click"/>
-                        <Button Content="Отменить изменения" Margin="3 0" Width="150" Click="CancelChangesButton_Click"/>
-                        <Button Content="Удалить" Margin="3 0" Width="70" Click="DeleteButton_Click"/>
-                    </StackPanel>
-
-                    <DataGrid x:Name="dishesTable" CanUserResizeRows="False" AutoGenerateColumns="False" Margin="10 0 10 10">
-                        <DataGrid.Resources>
-                            <Style TargetType="TextBlock" x:Key="WrapText">
-                                <Setter Property="TextWrapping" Value="Wrap"/>
-                            </Style>
-                        </DataGrid.Resources>
-                        <DataGrid.Columns>
-                            <DataGridTextColumn Header="Название" Width="150" Binding="{Binding Path=Dish_name}"/>
-                            <DataGridComboBoxColumn x:Name="colGroup" Header="Группа"
-                                    DisplayMemberPath="Group_name"
-                                    SelectedValuePath="ID" 
-                                    SelectedValueBinding="{Binding Path=ID_Group}" 
-                                    Width="150"/>
-                            <DataGridTextColumn Header="Описание" Width="*" Binding="{Binding Path=Description}" ElementStyle="{StaticResource WrapText}"/>
-                            <DataGridTextColumn Header="Фото" Width="150" Binding="{Binding Path=ID_Photo}"/>
-                        </DataGrid.Columns>
-                    </DataGrid>
-                </DockPanel>
-            </TabItem>-->
-
-        <!--<TabItem Header="Состав блюда" GotFocus="TabItem_GotFocus">-->
         <DockPanel>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,10,10.4,10" Height="43" DockPanel.Dock="Top" Width="730">
-                <Button Content="На главную" Margin="3 0" Width="140" Click="BackButton_Click"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,10,10.4,10" Height="40" DockPanel.Dock="Top" Width="730">
+                <Button Content="На главную" Margin="0, 0, 350, 0" Width="140" Click="BackButton_Click"/>
                 <Button Content="Сохранить изменения" Margin="3 0" Width="150" Click="SaveChangesButton_Click"/>
                 <Button Content="Удалить" Margin="3 0" Width="70" Click="DeleteButton_Click"/>
             </StackPanel>
@@ -110,24 +78,5 @@
                 </DataGrid.Columns>
             </DataGrid>
         </DockPanel>
-        <!--</TabItem>-->
-
-
-        <!--<TabItem Header="Ингридиенты" GotFocus="TabItem_GotFocus">
-                <DockPanel>
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="10" Height="25" DockPanel.Dock="Top">
-                        <Button Content="На главную" Margin="175, 0" Width="140" Click="BackButton_Click"/>
-                        <Button Content="Сохранить изменения" Margin="3 0" Width="150" Click="SaveChangesButton_Click"/>
-                        <Button Content="Отменить изменения" Margin="3 0" Width="150" Click="CancelChangesButton_Click"/>
-                        <Button Content="Удалить" Margin="3 0" Width="70" Click="DeleteButton_Click"/>
-                    </StackPanel>
-                    <DataGrid x:Name="ingredientTable" CanUserResizeRows="False" AutoGenerateColumns="False" Margin="10 0 10 10">
-                        <DataGrid.Columns>
-                            <DataGridTextColumn Header="Название" Width="*" Binding="{Binding Path=Ingredient_name}"/>
-                        </DataGrid.Columns>
-                    </DataGrid>
-                </DockPanel>
-            </TabItem>-->
-        <!--</TabControl>-->
     </Grid>
 </Page>

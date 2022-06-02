@@ -15,9 +15,6 @@ using System.Windows.Shapes;
 
 namespace FoodApp
 {
-    /// <summary>
-    /// Логика взаимодействия для LoginPage.xaml
-    /// </summary>
     public partial class LoginPage : Page
     {
         bool isLogin = false;
@@ -44,9 +41,11 @@ namespace FoodApp
 
                 if (user.ID == 1)
                 {
-                    MessageBoxResult result = MessageBox.Show("Хотите открыть таблицы с блюдами?", "", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                    MessageBoxResult result = MessageBox.Show("Желаете открыть панель админа?", "", MessageBoxButton.YesNo, MessageBoxImage.Question);
                     if (result == MessageBoxResult.Yes)
-                        NavigationService.Navigate(new EditPage());
+                        NavigationService.Navigate(new ForAdminPage());
+                    if (result == MessageBoxResult.No)
+                        NavigationService.Navigate(new LoadingPage());
                 }
                 else
                 {

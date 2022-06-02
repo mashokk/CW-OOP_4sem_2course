@@ -20,7 +20,7 @@ namespace FoodApp
 {
     public enum TableType //Перечисление, где указывается тип таблицы
     {
-        CompositionTT
+        CompositionTT, IngredientsTT, UsersTT
     }
     public partial class EditPage : Page
     {
@@ -50,7 +50,7 @@ namespace FoodApp
                     break;
             }
         }
-
+        
         //Сохраняет изменения и обновляет таблицу
         private void SaveChanges(TableType tt)
         {

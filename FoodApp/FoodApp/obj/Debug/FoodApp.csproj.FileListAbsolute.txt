@@ -31,6 +31,6 @@ C:\Study\2 курс\4 семестр\0.КУРСАЧ\FoodApp\FoodApp\obj\Debug\Vi
 C:\Study\2 курс\4 семестр\0.КУРСАЧ\FoodApp\FoodApp\obj\Debug\ViewPage.baml
 C:\Study\2 курс\4 семестр\0.КУРСАЧ\FoodApp\FoodApp\obj\Debug\ForAdminPage.g.cs
 C:\Study\2 курс\4 семестр\0.КУРСАЧ\FoodApp\FoodApp\obj\Debug\ForAdminPage.baml
-C:\Study\2 курс\4 семестр\0.КУРСАЧ\FoodApp\FoodApp\obj\Debug\FoodApp.csproj.AssemblyReference.cache
 C:\Study\2 курс\4 семестр\0.КУРСАЧ\FoodApp\FoodApp\obj\Debug\LoadingPage.g.cs
 C:\Study\2 курс\4 семестр\0.КУРСАЧ\FoodApp\FoodApp\obj\Debug\LoadingPage.baml
+C:\Study\2 курс\4 семестр\0.КУРСАЧ\FoodApp\FoodApp\obj\Debug\FoodApp.csproj.AssemblyReference.cache
